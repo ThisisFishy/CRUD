@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const AddButton = ({ items, setItems }) => {
-  const [showInput, setShowInput] = useState(false);
+  const [showInput, setShowInput] = useState(true);
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
   const [objectList, setObjectList] = useState({ a: '', b: '', c: '' });
@@ -10,14 +10,14 @@ const AddButton = ({ items, setItems }) => {
   const addItem = () => {
     const newItem = { id: Date.now(), date, name, objectList, quantity };
     setItems([...items, newItem]);
-    setShowInput(false);
+    setShowInput(true);
   };
 
   const handleObjectChange = (e, key) => {
     setObjectList({ ...objectList, [key]: e.target.value });
   };
 
-  if (showInput) {
+  if (showInput == false) {
     return (
       <div>
         <div className="form-row">
@@ -47,12 +47,12 @@ const AddButton = ({ items, setItems }) => {
           </div>
         </div>
         <button onClick={addItem}>Done</button>
-        <button onClick={() => setShowInput(false)}>Cancel</button>
+        <button onClick={() => setShowInput(true)}>Cancel</button>
       </div>
     );
   }
 
-  return <button onClick={() => setShowInput(true)}>ADD</button>;
+  return <button onClick={() => setShowInput(false)}>ADDDDD</button>;
 };
 
 export default AddButton;

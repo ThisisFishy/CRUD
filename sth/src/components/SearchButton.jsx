@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Item from './Item';
+import ItemList from './ItemList';
 
-const SearchButton = ({ items, setItems }) => {
+const SearchButton = ({ items, updateItem, deleteItem }) => {
   const [showInput, setShowInput] = useState(false);
   const [searchDate, setSearchDate] = useState('');
   const [searchName, setSearchName] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [searchPerformed, setSearchPerformed] = useState(false);
+
+  useEffect(() => {
+    if (searchPerformed) {
+      searchItems();
+    }
+  }, [items]);
 
   const searchItems = () => {
     const results = items.filter((item) => {
@@ -12,7 +21,10 @@ const SearchButton = ({ items, setItems }) => {
       const matchName = searchName === '' || item.name === searchName;
       return matchDate && matchName;
     });
+    setShowInput(true);
     setSearchResults(results);
+    setSearchPerformed(true);
+    
   };
 
   if (showInput) {
@@ -30,18 +42,16 @@ const SearchButton = ({ items, setItems }) => {
         </div>
         <button onClick={searchItems}>Search</button>
         <button onClick={() => setShowInput(false)}>Close</button>
+        {searchResults.map((item) => (
+          <Item key={item.id} item={item} updateItem={updateItem} deleteItem={deleteItem} />
+        ))}
       </div>
     );
   }
 
   return (
     <div>
-      <button onClick={() => setShowInput(true)}>Search</button>
-      <div>
-        {searchResults.map((result) => (
-          <div key={result.id}>{result.name}</div>
-        ))}
-      </div>
+      <button onClick={() => setShowInput(true)}>Searchhhhh</button>
     </div>
   );
 };
