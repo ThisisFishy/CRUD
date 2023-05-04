@@ -52,7 +52,7 @@ const AddButton = ({ items, setItems }) => {
     );
   }
 
-  return <button onClick={() => setShowInput(false)}>ADDDDD</button>;
+  return <button onClick={() => setShowInput(false)}>Add</button>;
 };
 
 export default AddButton;

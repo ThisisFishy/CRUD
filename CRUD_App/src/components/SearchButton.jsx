@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Item from './Item';
-import ItemList from './ItemList';
 
 const SearchButton = ({ items, updateItem, deleteItem }) => {
   const [showInput, setShowInput] = useState(false);
@@ -51,7 +50,7 @@ const SearchButton = ({ items, updateItem, deleteItem }) => {
 
   return (
     <div>
-      <button onClick={() => setShowInput(true)}>Searchhhhh</button>
+      <button onClick={() => setShowInput(true)}>Search</button>
     </div>
   );
 };
