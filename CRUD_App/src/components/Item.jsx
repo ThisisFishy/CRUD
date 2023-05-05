@@ -10,7 +10,6 @@ const Item = ({ item, updateItem, deleteItem }) => {
   };
 
   const handleObjectChange = (e, key) => {
-    // objectList = setDefaultValues(objectList);
     setEditedItem({
       ...editedItem,
       objectList: { ...editedItem.objectList, [key]: e.target.value }
@@ -18,8 +17,16 @@ const Item = ({ item, updateItem, deleteItem }) => {
   };
 
   const handleSave = () => {
-    updateItem(item.id, editedItem);
-    setIsEditing(false);
+    if (editedItem.date && editedItem.name && editedItem.lorry) {
+      const updatedItem = {
+        ...editedItem,
+        objectList: setDefaultValues(editedItem.objectList),
+      };
+      updateItem(item.id, updatedItem);
+      setIsEditing(false);
+    }else{
+      alert("You have not complete the input yet");
+    }
   };
 
   const setDefaultValues = (inputObject) => {
@@ -113,7 +120,6 @@ const Item = ({ item, updateItem, deleteItem }) => {
 
   return (
     <div >
-      {/* <h id="listTitle">Recent Add:</h> */}
       <div className="show_item item">
         <div><span>Date: </span><br></br>{item.date}</div>
         <div><span>Name: </span><br></br>{item.name}</div>
