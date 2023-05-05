@@ -13,14 +13,12 @@ body {
   max-width: 100%;
   box-sizing: border-box;
   padding: 0rem 2rem;
-  /* background-color: red; */
 }
 
 .title{
   width:100%;
   text-align: center;
   padding-bottom:1rem;
-  /* background-color:yellow; */
 }
 
 h1 {
@@ -58,7 +56,17 @@ button:hover {
   margin-bottom: 1rem;
 }
 
-.item {
+.show_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: blue;
+  border-radius: 4px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.edit_item {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -69,7 +77,26 @@ button:hover {
 
 .item > div {
   flex: 1;
-  padding: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-right: 10px;
+}
+
+
+.show_item > div::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  width: 95.9%;
+  height: 2px;
+  background-color: white;
+  margin-top: 35px;
+}
+
+
+.show_item > div > span{
+  display:flex;
+  font-weight: bold;
+  font-size: large;
 }
 
 .item-buttons {
