@@ -3,6 +3,7 @@ body {
   width:100%;
   max-width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .app {
@@ -25,6 +26,10 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.itemList{
+  display:flex;
+}
+
 input,
 button {
   padding: 0.5rem;
@@ -42,7 +47,7 @@ button {
 }
 
 button:hover {
-  background-color: #ddd;
+  background-color: #272626;
 }
 
 .form-row {
@@ -54,6 +59,10 @@ button:hover {
   flex: 1;
   min-width: 150px;
   margin-bottom: 1rem;
+}
+
+.form-group > label{
+  margin-left:13px;
 }
 
 .show_item {
@@ -81,13 +90,12 @@ button:hover {
   margin-right: 10px;
 }
 
-
 .show_item > div::before {
   content: '';
-  position: absolute;
+  position:absolute;
   left: 32px;
-  width: 95.9%;
-  height: 2px;
+  width:85rem;
+  height:2px;
   background-color: white;
   margin-top: 35px;
 }
@@ -99,7 +107,36 @@ button:hover {
   font-size: large;
 }
 
-.item-buttons {
-  display: flex;
+.item-buttons > button{
+  display: block;
   justify-content: flex-end;
+  width:117px;
+}
+
+#edit-logo{
+  width:20px;
+  height:20px;
+  margin-left:9px;
+  vertical-align:text-bottom;
+}
+
+#delete-logo{
+  width:20px;
+  height:20px;
+  margin-left:1px;
+  vertical-align:text-bottom;
+}
+
+#add-logo{
+  width:20px;
+  height:20px;
+  margin-left:1px;
+  vertical-align:text-bottom;
+}
+
+#search-logo{
+  width:20px;
+  height:20px;
+  margin-left:1px;
+  vertical-align:text-bottom;
 }

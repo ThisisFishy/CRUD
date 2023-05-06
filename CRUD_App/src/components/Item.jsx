@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import editlogo from "/src/image/edit-logo.png";
+import deletelogo from "/src/image/delete-logo.png";
 
 const Item = ({ item, updateItem, deleteItem }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -119,7 +121,7 @@ const Item = ({ item, updateItem, deleteItem }) => {
   }
 
   return (
-    <div >
+    <div className="itemList">
       <div className="show_item item">
         <div><span>Date: </span><br></br>{item.date}</div>
         <div><span>Name: </span><br></br>{item.name}</div>
@@ -141,8 +143,15 @@ const Item = ({ item, updateItem, deleteItem }) => {
         
       </div>
       <div className="item-buttons">
-          <button onClick={() => setIsEditing(true)}>Edit</button>
-          <button onClick={() => deleteItem(item.id)}>Delete</button>
+      <button onClick={() => setIsEditing(true)}>
+        Edit
+        <img src={editlogo} alt="Edit logo" id="edit-logo" />
+      </button>
+
+          <button onClick={() => deleteItem(item.id)}>
+            Delete
+            <img src={deletelogo} alt="delete logo" id="delete-logo" />
+          </button>
       </div>
     </div>
   );
