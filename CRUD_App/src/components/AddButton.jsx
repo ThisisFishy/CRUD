@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import addlogo from "/src/image/add-logo.png";
 
 const AddButton = ({ items, setItems }) => {
   const [showInput, setShowInput] = useState(true);
@@ -126,7 +127,7 @@ const AddButton = ({ items, setItems }) => {
     );
   }
 
-  return <button onClick={() => setShowInput(false)}>Add</button>;
+  return <button onClick={() => setShowInput(false)}>Add <img src={addlogo} alt="add logo" id="add-logo"/></button>;
 };
 
 export default AddButton;

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Item from './Item';
+import searchlogo from "/src/image/search-logo.png";
+
 
 const SearchButton = ({ items, updateItem, deleteItem }) => {
   const [showInput, setShowInput] = useState(false);
@@ -39,7 +41,7 @@ const SearchButton = ({ items, updateItem, deleteItem }) => {
             <input type="text" value={searchName} onChange={(e) => setSearchName(e.target.value)} />
           </div>
         </div>
-        <button onClick={searchItems}>Search</button>
+        <button onClick={searchItems}>Search<img src={searchlogo} alt="search logo" id="search-logo"/></button>
         <button onClick={() => setShowInput(false)}>Close</button>
         {searchResults.map((item) => (
           <Item key={item.id} item={item} updateItem={updateItem} deleteItem={deleteItem} />
@@ -50,7 +52,7 @@ const SearchButton = ({ items, updateItem, deleteItem }) => {
 
   return (
     <div>
-      <button onClick={() => setShowInput(true)}>Search</button>
+      <button onClick={() => setShowInput(true)}>Search <img src={searchlogo} alt="search logo" id="search-logo"/></button>
     </div>
   );
 };
