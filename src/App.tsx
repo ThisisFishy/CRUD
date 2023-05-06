@@ -1,9 +1,19 @@
+import { AddSection, RecentlyAddedSection, SearchSection } from "./sections"
+
 function App() {
 
   return (
-    <div className="h-full flex justify-center items-center">
-      <h1 className="font-bold text-3xl">Hello World</h1>
-    </div>
+    <>
+      <header className="flex justify-center pt-4">
+        <h1 className="font-bold text-3xl text-white">CRUD APP</h1>
+      </header>
+
+      <main className="flex flex-col gap-4 m-5">
+        <AddSection />
+        <RecentlyAddedSection />
+        <SearchSection />
+      </main>
+    </>
   )
 }
 
