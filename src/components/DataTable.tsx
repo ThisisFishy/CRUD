@@ -20,6 +20,7 @@ export const DataTable = (props: DataTableProps) => {
             type: "dateTime",
             width: 180,
             editable: true,
+            hideable: false,
 
             // In case given a string, converts given string into a Date() object
             // https://mui.com/x/react-data-grid/column-definition/#converting-types
@@ -55,7 +56,9 @@ export const DataTable = (props: DataTableProps) => {
         // https://mui.com/x/react-data-grid/column-definition/#special-properties
         {
             field: "actions",
+            // headerName: "Actions",
             type: "actions",
+            hideable: false,
             getActions: ({ id }) => [
                 <GridActionsCellItem
                     icon={<DeleteIcon />}
@@ -84,6 +87,9 @@ export const DataTable = (props: DataTableProps) => {
     }
 
     const handleDeleteClick = (id: GridRowId) => () => {
+        // Dont allow delete if not editable
+        if (!props.isEditable) return;
+
         console.log("Deleting: ", id);
 
         // Delete is the same as filtering all the rows, filter out the row with the same ID as the row to delete
@@ -104,6 +110,15 @@ export const DataTable = (props: DataTableProps) => {
                 // editMode="row" // Set to "row" to edit the entire row instead of per cell
                 processRowUpdate={onRowUpdate}
                 isCellEditable={() => props.isEditable}
+
+                initialState={{
+                    columns: {
+                        // Hide columns if false
+                        columnVisibilityModel: {
+                            actions: props.isEditable,
+                        },
+                    },
+                }}
             />
         </div>
     )
