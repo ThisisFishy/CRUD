@@ -1,5 +1,6 @@
 import { GridRowsProp } from "@mui/x-data-grid"
-import { DataTable, SectionHeader, SmallButton } from "../components"
+import { Button } from "@mui/material"
+import { DataTable, SectionHeader } from "../components"
 
 interface SearchSectionProps {
     rows: GridRowsProp,
@@ -13,7 +14,7 @@ export const SearchSection = (props: SearchSectionProps) => {
 
             <div className="flex flex-col gap-2">
                 <div>
-                    <SmallButton text="Search" />
+                    <Button variant="contained">Search</Button>
                 </div>
 
                 <DataTable {...props} isEditable={false} />

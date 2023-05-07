@@ -1,3 +1,3 @@
-export * from "./AddSection/AddSection"
+export * from "./AddSection"
 export * from "./RecentlyAddedSection"
 export * from "./SearchSection"

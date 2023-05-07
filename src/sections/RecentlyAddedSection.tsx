@@ -1,5 +1,5 @@
-import { DataTable, SectionHeader } from "../components"
 import { GridRowsProp } from "@mui/x-data-grid"
+import { DataTable, SectionHeader } from "../components"
 
 interface RecentlyAddedSectionProps {
     rows: GridRowsProp,

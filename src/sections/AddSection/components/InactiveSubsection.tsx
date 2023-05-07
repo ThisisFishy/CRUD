@@ -1,4 +1,4 @@
-import { SmallButton } from "../../components"
+import { Button } from "@mui/material"
 
 interface InactiveSubsectionProps {
     OnAddClicked: () => void
@@ -6,6 +6,6 @@ interface InactiveSubsectionProps {
 
 export const InactiveSubsection = (props: InactiveSubsectionProps) => {
     return (
-        <SmallButton text="Add" onClick={props.OnAddClicked} />
+        <Button variant="contained" onClick={props.OnAddClicked}>Add</Button>
     )
 }
