@@ -1,7 +1,16 @@
 import { AddSection, RecentlyAddedSection, SearchSection } from "./sections"
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-function App() {
+// Set dark theme by default
+// Reference: https://mui.com/material-ui/customization/dark-mode/
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
+function Main() {
   return (
     <>
       <header className="flex justify-center pt-4">
@@ -14,6 +23,15 @@ function App() {
         <SearchSection />
       </main>
     </>
+  )
+}
+
+function App() {
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Main />
+    </ThemeProvider >
   )
 }
 
