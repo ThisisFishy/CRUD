@@ -26,6 +26,7 @@ const initialRows: GridRowsProp = [
 
 function Main() {
   // "Lift the State" so it can be shared across components
+  // In the future, initial rows can be from some online database
   const [rows, setRows] = useState(initialRows);
 
   return (
@@ -35,7 +36,7 @@ function Main() {
       </header>
 
       <main className="flex flex-col gap-4 m-5">
-        <AddSection />
+        <AddSection setRows={setRows} />
         <RecentlyAddedSection rows={rows} setRows={setRows} />
         <SearchSection rows={rows} setRows={setRows} />
       </main>
@@ -44,6 +45,11 @@ function Main() {
 }
 
 function App() {
+
+  // ThemeProvider required so all MUI components share the same theme
+  // CssBaseline is also required
+  // https://mui.com/material-ui/customization/dark-mode/#dark-mode-by-default
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
