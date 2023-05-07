@@ -1,5 +1,4 @@
-import { Box, Button, FormControl, FormLabel, TextField } from "@mui/material"
-import { SmallButton } from "../../components"
+import { Button, FormLabel, TextField } from "@mui/material"
 
 interface ActiveSubsectionProps {
     OnDoneClicked: (formDataObject: FormDataObject) => void,
