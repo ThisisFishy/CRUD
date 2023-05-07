@@ -1,5 +1,5 @@
 import { SectionHeader, SmallButton } from "../components"
-import FullFeaturedCrudGrid from "../components/FullFeaturedCrudGrid"
+// import FullFeaturedCrudGrid from "../components/FullFeaturedCrudGrid"
 
 export const SearchSection = () => {
     return (
@@ -7,7 +7,7 @@ export const SearchSection = () => {
             <SectionHeader title="Search" />
             <SmallButton text="Search" />
 
-            <FullFeaturedCrudGrid />
+            {/* <FullFeaturedCrudGrid /> */}
         </section>
     )
 }
