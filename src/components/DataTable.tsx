@@ -40,7 +40,7 @@ export const DataTable = (props: DataTableProps) => {
         {
             field: "lorry",
             headerName: "Lorry",
-            type: "number",
+            type: "string",
             editable: true,
         },
 
