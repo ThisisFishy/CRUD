@@ -20,7 +20,8 @@ const initialRows: GridRowsProp = [
     date: new Date(2022, 10, 25, 22, 15),
     name: "Thomas Yu",
     lorry: "abc123",
-    c12: 123
+    c12: 123,
+    c12Tong:0
   }
 ]
 

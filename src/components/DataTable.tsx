@@ -51,6 +51,14 @@ export const DataTable = (props: DataTableProps) => {
             type: "number",
             editable: true,
         },
+        
+        //C12Tong
+        {
+            field: "c12Tong",
+            headerName: "C12Tong",
+            type: "number",
+            editable: true,
+        },
 
         // Actions
         // https://mui.com/x/react-data-grid/column-definition/#special-properties

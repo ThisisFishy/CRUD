@@ -9,7 +9,8 @@ export interface FormDataObject {
     date: Date,
     name: string,
     lorry: string,
-    c12: number
+    c12: number,
+    c12Tong: number,
 }
 
 export const ActiveSubsection = (props: ActiveSubsectionProps) => {
@@ -30,6 +31,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             name: "Default Name",
             lorry: "",
             c12: 0,
+            c12Tong: 0
         }
 
         // Extract the raw data and convert it into a FormDataObject
@@ -55,6 +57,10 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
 
                 case "c12":
                     formDataObject.c12 = parseInt(value.toString());
+                    break;
+
+                case "c12Tong":
+                    formDataObject.c12Tong = parseInt(value.toString());
                     break;
             }
         });
@@ -82,6 +88,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <FormLabel>Non-essential Data</FormLabel>
                         <div>
                             <TextField name="c12" size="small" label="C12" type="number" />
+                            <TextField name="c12Tong" size="small" label="C12Tong" type="number" />
                         </div>
                     </div>
 
