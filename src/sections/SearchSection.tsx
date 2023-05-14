@@ -17,7 +17,7 @@ export const SearchSection = (props: SearchSectionProps) => {
                     <Button variant="contained">Search</Button>
                 </div>
 
-                <DataTable {...props} isEditable={false} />
+                <DataTable {...props} isEditable={true} />
             </div>
         </section>
     )
