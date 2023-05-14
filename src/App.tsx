@@ -42,7 +42,7 @@ function Main() {
   return (
     <>
       <header className="flex justify-center pt-4">
-        <h1 className="font-bold text-3xl text-white">CRUD APP</h1>
+        <h1 className="font-bold text-3xl text-white">Glory Gas</h1>
       </header>
 
       <main className="flex flex-col gap-4 m-5">

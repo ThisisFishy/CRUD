@@ -117,35 +117,36 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
     }
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 ml-4 ">
 
             <form onSubmit={onSubmit}>
-                <div className="flex flex-col gap-4">
-                    <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-4 ">
+                    <div className="flex flex-col gap-2 ">
                         <FormLabel>Essential Data</FormLabel>
                         <div className="flex gap-4">
                             <div>
-                                <TextField name="date" required={true} size="small" type="datetime-local" />
+                                <TextField name="date" required={true} size="small" type="datetime-local" className="shadow-md shadow-gray-900"/>
                             </div>
-                            <TextField name="name" required={true} size="small" label="Name" />
-                            <TextField name="lorry" required={true} size="small" label="Lorry" />
+                            <TextField name="name" required={true} size="small" label="Name" className="shadow-md shadow-gray-900"/>
+                            <TextField name="lorry" required={true} size="small" label="Lorry" className="shadow-md shadow-gray-900"/>
                         </div>
                     </div>
 
                     <div className="flex flex-col gap-2">
                         <FormLabel>Non-essential Data</FormLabel>
-                        <div>
-                            <TextField name="c12" size="small" label="C12" type="number" />
-                            <TextField name="c12Tong" size="small" label="C12Tong" type="number" />
-                            <TextField name="c14" size="small" label="C14" type="number" />
-                            <TextField name="c14Tong" size="small" label="C14Tong" type="number" />
-                            <TextField name="a14c" size="small" label="14c" type="number" />
-                            <TextField name="a14cTong" size="small" label="14cTong" type="number" />
-                            <TextField name="c50" size="small" label="C50" type="number" />
-                            <TextField name="c50Tong" size="small" label="C50Tong" type="number" />
-                            <TextField name="gasPayment" size="small" label="GasPayment" type="number" />
-                            <TextField name="hutang" size="small" label="Hutang" type="number" />
-
+                        <div className="flex gap-4">
+                            <TextField name="c12" size="small" label="C12" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="c14" size="small" label="C14" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="a14c" size="small" label="14c" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="a14cTong" size="small" label="14cTong" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="c50" size="small" label="C50" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="shadow-md shadow-gray-900"/>
+                        </div>
+                        <div className="flex gap-4 mt-4">
+                            <TextField name="gasPayment" size="small" label="GasPayment" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="hutang" size="small" label="Hutang" type="number" className="shadow-md shadow-gray-900"/>
                         </div>
                     </div>
 
