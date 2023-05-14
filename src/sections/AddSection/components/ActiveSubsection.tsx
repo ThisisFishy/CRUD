@@ -11,6 +11,14 @@ export interface FormDataObject {
     lorry: string,
     c12: number,
     c12Tong: number,
+    c14: number,
+    c14Tong: number,
+    a14c: number,
+    a14cTong: number,
+    c50: number,
+    c50Tong: number,
+    gasPayment: number,
+    hutang: number,    
 }
 
 export const ActiveSubsection = (props: ActiveSubsectionProps) => {
@@ -31,7 +39,15 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             name: "Default Name",
             lorry: "",
             c12: 0,
-            c12Tong: 0
+            c12Tong: 0,
+            c14: 0,
+            c14Tong: 0,
+            a14c: 0,
+            a14cTong: 0,
+            c50: 0,
+            c50Tong:0,
+            gasPayment: 0,
+            hutang: 0
         }
 
         // Extract the raw data and convert it into a FormDataObject
@@ -62,6 +78,38 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                 case "c12Tong":
                     formDataObject.c12Tong = parseInt(value.toString());
                     break;
+
+                case "c14":
+                    formDataObject.c14 = parseInt(value.toString());
+                    break;
+
+                case "c14Tong":
+                    formDataObject.c14Tong = parseInt(value.toString());
+                    break;
+
+                case "a14c":
+                    formDataObject.a14c = parseInt(value.toString());
+                    break;
+
+                case "a14cTong":
+                    formDataObject.a14cTong = parseInt(value.toString());
+                    break;
+                    
+                case "c50":
+                    formDataObject.c50 = parseInt(value.toString());
+                    break;
+
+                case "c50Tong":
+                    formDataObject.c50Tong = parseInt(value.toString());
+                    break;
+
+                case "gasPayment":
+                    formDataObject.gasPayment = parseInt(value.toString());
+                    break;
+
+                case "hutang":
+                    formDataObject.hutang = parseInt(value.toString());
+                    break;
             }
         });
 
@@ -89,6 +137,15 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <div>
                             <TextField name="c12" size="small" label="C12" type="number" />
                             <TextField name="c12Tong" size="small" label="C12Tong" type="number" />
+                            <TextField name="c14" size="small" label="C14" type="number" />
+                            <TextField name="c14Tong" size="small" label="C14Tong" type="number" />
+                            <TextField name="a14c" size="small" label="14c" type="number" />
+                            <TextField name="a14cTong" size="small" label="14cTong" type="number" />
+                            <TextField name="c50" size="small" label="C50" type="number" />
+                            <TextField name="c50Tong" size="small" label="C50Tong" type="number" />
+                            <TextField name="gasPayment" size="small" label="GasPayment" type="number" />
+                            <TextField name="hutang" size="small" label="Hutang" type="number" />
+
                         </div>
                     </div>
 

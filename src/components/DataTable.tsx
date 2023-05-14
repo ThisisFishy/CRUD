@@ -55,7 +55,63 @@ export const DataTable = (props: DataTableProps) => {
         //C12Tong
         {
             field: "c12Tong",
-            headerName: "C12Tong",
+            headerName: "C12 Tong",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "c14",
+            headerName: "C14",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "c14Tong",
+            headerName: "C14 Tong",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "a14c",
+            headerName: "14C",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "a14cTong",
+            headerName: "14C Tong",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "c50",
+            headerName: "C50",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "c50Tong",
+            headerName: "C50 Tong",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "gasPayment",
+            headerName: "Gas Payment",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "hutang",
+            headerName: "Hutang",
             type: "number",
             editable: true,
         },
