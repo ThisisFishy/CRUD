@@ -19,7 +19,7 @@ const initialRows: GridRowsProp = [
     id: randomId(),
     date: new Date(2022, 10, 25, 22, 15),
     name: "Thomas Yu",
-    lorry: 1,
+    lorry: "abc123",
     c12: 123
   }
 ]

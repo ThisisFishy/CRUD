@@ -8,7 +8,7 @@ interface ActiveSubsectionProps {
 export interface FormDataObject {
     date: Date,
     name: string,
-    lorry: number,
+    lorry: string,
     c12: number
 }
 
@@ -28,7 +28,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
         const formDataObject: FormDataObject = {
             date: new Date(),
             name: "Default Name",
-            lorry: 0,
+            lorry: "",
             c12: 0,
         }
 
@@ -50,7 +50,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                     break;
 
                 case "lorry":
-                    formDataObject.lorry = parseInt(value.toString());
+                    formDataObject.lorry = value.toString();
                     break;
 
                 case "c12":
@@ -74,7 +74,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                                 <TextField name="date" required={true} size="small" type="datetime-local" />
                             </div>
                             <TextField name="name" required={true} size="small" label="Name" />
-                            <TextField name="lorry" required={true} size="small" label="Lorry" type="number" />
+                            <TextField name="lorry" required={true} size="small" label="Lorry" />
                         </div>
                     </div>
 
