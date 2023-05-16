@@ -150,7 +150,7 @@ export const DataTable = (props: DataTableProps) => {
             type: "number",
             editable: false,
             width:170,
-            valueGetter: (params) => params.row.gasPayment + params.row.hutang,
+            valueGetter: (params) => params.row.gasPayment + params.row.tongPayment + params.row.bayarHutang,
         },
 
         // Actions
