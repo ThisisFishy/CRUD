@@ -19,7 +19,11 @@ export interface FormDataObject {
     c50Tong: number,
     gasPayment: number,
     hutang: number,
-    totalCashCollection: number  
+    tongPayment: number,
+    bayarHutang: number,
+    pinjamTong: number,
+    pulangTong: number,
+    totalCashCollection: number
 }
 
 export const ActiveSubsection = (props: ActiveSubsectionProps) => {
@@ -49,6 +53,10 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             c50Tong:0,
             gasPayment: 0,
             hutang: 0,
+            tongPayment: 0,
+            bayarHutang: 0,
+            pinjamTong: 0,
+            pulangTong: 0,
             totalCashCollection: 0
         }
 
@@ -113,6 +121,22 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                     formDataObject.hutang = parseInt(value.toString());
                     break;
                 
+                case "tongPayment":
+                    formDataObject.tongPayment = parseInt(value.toString());
+                    break;
+
+                case "bayarHutang":
+                    formDataObject.bayarHutang = parseInt(value.toString());
+                    break;
+
+                case "pinjamTong":
+                    formDataObject.pinjamTong = parseInt(value.toString());
+                    break;
+
+                case "pulangTong":
+                    formDataObject.pulangTong = parseInt(value.toString());
+                    break;    
+
                 // case "totalCashCollection":
                 //     formDataObject.totalCashCollection = parseInt(value.toString())
                 //     break;
@@ -153,6 +177,11 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <div className="flex gap-4 mt-4">
                             <TextField name="gasPayment" size="small" label="GasPayment" type="number" className="shadow-md shadow-gray-900"/>
                             <TextField name="hutang" size="small" label="Hutang" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="tongPayment" size="small" label="tongPayment" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="bayarHutang" size="small" label="bayarHutang" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="pinjamTong" size="small" label="pinjamTong" type="number" className="shadow-md shadow-gray-900"/>
+                            <TextField name="pulangTong" size="small" label="pulangTong" type="number" className="shadow-md shadow-gray-900"/>
+
                         </div>
                     </div>
 

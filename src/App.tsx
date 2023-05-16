@@ -30,7 +30,11 @@ const initialRows: GridRowsProp = [
     c50Tong:21,
     gasPayment: 1487,
     hutang: 2045,
-    totalCashCollection:0
+    tongPayment: 520,
+    bayarHutang: 77,
+    pinjamTong: 13,
+    pulangTong: 69,
+    // totalCashCollection:''
   }
 ]
 

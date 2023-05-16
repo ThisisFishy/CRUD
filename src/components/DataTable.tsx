@@ -117,6 +117,34 @@ export const DataTable = (props: DataTableProps) => {
         },
 
         {
+            field: "tongPayment",
+            headerName: "Tong Payment",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "bayarHutang",
+            headerName: "Bayar Hutang",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "pinjamTong",
+            headerName: "Pinjam Tong",
+            type: "number",
+            editable: true,
+        },
+
+        {
+            field: "pulangTong",
+            headerName: "Pulang Tong",
+            type: "number",
+            editable: true,
+        },
+
+        {
             field: "totalCashCollection",
             headerName: "Total Cash Coleection",
             type: "number",
