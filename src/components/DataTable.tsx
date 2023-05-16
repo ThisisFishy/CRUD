@@ -116,6 +116,15 @@ export const DataTable = (props: DataTableProps) => {
             editable: true,
         },
 
+        {
+            field: "totalCashCollection",
+            headerName: "Total Cash Coleection",
+            type: "number",
+            editable: false,
+            width:170,
+            valueGetter: (params) => params.row.gasPayment + params.row.hutang,
+        },
+
         // Actions
         // https://mui.com/x/react-data-grid/column-definition/#special-properties
         {

@@ -18,7 +18,8 @@ export interface FormDataObject {
     c50: number,
     c50Tong: number,
     gasPayment: number,
-    hutang: number,    
+    hutang: number,
+    totalCashCollection: number  
 }
 
 export const ActiveSubsection = (props: ActiveSubsectionProps) => {
@@ -47,7 +48,8 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             c50: 0,
             c50Tong:0,
             gasPayment: 0,
-            hutang: 0
+            hutang: 0,
+            totalCashCollection: 0
         }
 
         // Extract the raw data and convert it into a FormDataObject
@@ -110,6 +112,10 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                 case "hutang":
                     formDataObject.hutang = parseInt(value.toString());
                     break;
+                
+                // case "totalCashCollection":
+                //     formDataObject.totalCashCollection = parseInt(value.toString())
+                //     break;
             }
         });
 

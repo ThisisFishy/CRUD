@@ -29,8 +29,8 @@ const initialRows: GridRowsProp = [
     c50: 1,
     c50Tong:21,
     gasPayment: 1487,
-    hutang: 2045
-
+    hutang: 2045,
+    totalCashCollection:0
   }
 ]
 
