@@ -41,6 +41,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "lorry",
             headerName: "Lorry",
             type: "string",
+            width:110,
             editable: true,
         },
 
@@ -49,6 +50,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "c12",
             headerName: "C12",
             type: "number",
+            width:110,
             editable: true,
         },
         
@@ -57,6 +59,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "c12Tong",
             headerName: "C12 Tong",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -64,6 +67,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "c14",
             headerName: "C14",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -71,6 +75,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "c14Tong",
             headerName: "C14 Tong",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -78,6 +83,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "a14c",
             headerName: "14C",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -85,6 +91,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "a14cTong",
             headerName: "14C Tong",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -92,6 +99,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "c50",
             headerName: "C50",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -99,6 +107,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "c50Tong",
             headerName: "C50 Tong",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -106,6 +115,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "gasPayment",
             headerName: "Gas Payment",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -113,6 +123,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "hutang",
             headerName: "Hutang",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -120,6 +131,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "tongPayment",
             headerName: "Tong Payment",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -127,6 +139,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "bayarHutang",
             headerName: "Bayar Hutang",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -134,6 +147,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "pinjamTong",
             headerName: "Pinjam Tong",
             type: "number",
+            width:110,
             editable: true,
         },
 
@@ -141,6 +155,7 @@ export const DataTable = (props: DataTableProps) => {
             field: "pulangTong",
             headerName: "Pulang Tong",
             type: "number",
+            width:110,
             editable: true,
         },
 
