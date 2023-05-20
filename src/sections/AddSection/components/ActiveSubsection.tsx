@@ -147,48 +147,48 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
     }
 
     return (
-        <div className="flex flex-col gap-4 ml-4 ">
+        <div className="flex flex-col gap-4 ml-4 max-sm:justify-center max-sm:ml-0">
 
             <form onSubmit={onSubmit}>
                 <div className="flex flex-col gap-4 bg-slate-900 p-5 rounded-lg shadow-lg shadow-gray-900">
                     <div className="flex flex-col gap-2 ">
                         <FormLabel>Essential Data</FormLabel>
-                        <div className="flex gap-4">
+                        <div className="flex gap-4 max-sm:flex-col">
                             <div>
-                                <TextField name="date" required={true} size="small" type="datetime-local" className="shadow-md shadow-gray-900"/>
+                                <TextField name="date" required={true} size="small" type="datetime-local" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                             </div>
-                            <TextField name="name" required={true} size="small" label="Name" className="shadow-md shadow-gray-900"/>
-                            <TextField name="lorry" required={true} size="small" label="Lorry" className="shadow-md shadow-gray-900"/>
+                            <TextField name="name" required={true} size="small" label="Name" className="shadow-sm shadow-indigo-900"/>
+                            <TextField name="lorry" required={true} size="small" label="Lorry" className="shadow-sm shadow-indigo-900"/>
                         </div>
                     </div>
 
                     <div className="flex flex-col gap-2">
                         <FormLabel>Non-essential Data</FormLabel>
-                        <div className="flex gap-4">
-                            <TextField name="c12" size="small" label="C12" type="number" className="w-60 shadow-md shadow-gray-900"/>
-                            <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="shadow-md shadow-gray-900"/>
-                            <TextField name="c14" size="small" label="C14" type="number" className="shadow-md shadow-gray-900"/>
-                            <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="shadow-md shadow-gray-900"/>
+                        <div className="flex gap-4 max-sm:flex-col">
+                            <TextField name="c12" size="small" label="C12" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="shadow-sm shadow-indigo-900"/>
+                            <TextField name="c14" size="small" label="C14" type="number" className="shadow-sm shadow-indigo-900"/>
+                            <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="shadow-sm shadow-indigo-900"/>
                         </div>
-                        <div className="flex gap-4 mt-1">
-                            <TextField name="a14c" size="small" label="14c" type="number" className=" w-60 shadow-md shadow-gray-900"/>
-                            <TextField name="a14cTong" size="small" label="14cTong" type="number" className="shadow-md shadow-gray-900"/>
-                            <TextField name="c50" size="small" label="C50" type="number" className="shadow-md shadow-gray-900"/>
-                            <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="shadow-md shadow-gray-900"/>
+                        <div className="flex gap-4 mt-1 max-sm:flex-col">
+                            <TextField name="a14c" size="small" label="14c" type="number" className=" w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="a14cTong" size="small" label="14cTong" type="number" className="shadow-sm shadow-indigo-900"/>
+                            <TextField name="c50" size="small" label="C50" type="number" className="shadow-sm shadow-indigo-900"/>
+                            <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="shadow-sm shadow-indigo-900"/>
                         </div>
-                        <div className="flex gap-4 mt-6">
-                            <TextField name="gasPayment" size="small" label="Gas Payment" type="number" className="w-60 shadow-md shadow-gray-900"/>
-                            <TextField name="hutang" size="small" label="Hutang" type="number" className="shadow-md shadow-gray-900"/>
-                            <TextField name="tongPayment" size="small" label="Tong Payment" type="number" className="shadow-md shadow-gray-900"/>
-                            <TextField name="bayarHutang" size="small" label="Bayar Hutang" type="number" className="shadow-md shadow-gray-900"/>
+                        <div className="flex gap-4 mt-6 max-sm:flex-col">
+                            <TextField name="gasPayment" size="small" label="Gas Payment" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="hutang" size="small" label="Hutang" type="number" className="shadow-sm shadow-indigo-900"/>
+                            <TextField name="tongPayment" size="small" label="Tong Payment" type="number" className="shadow-sm shadow-indigo-900"/>
+                            <TextField name="bayarHutang" size="small" label="Bayar Hutang" type="number" className="shadow-sm shadow-indigo-900"/>
                         </div>
-                        <div className="flex gap-4 mt-1">
-                            <TextField name="pinjamTong" size="small" label="Pinjam Tong" type="number" className="w-60 shadow-md shadow-gray-900"/>
-                            <TextField name="pulangTong" size="small" label="Pulang Tong" type="number" className="shadow-md shadow-gray-900"/>
+                        <div className="flex gap-4 mt-1 max-sm:flex-col">
+                            <TextField name="pinjamTong" size="small" label="Pinjam Tong" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="pulangTong" size="small" label="Pulang Tong" type="number" className="shadow-sm shadow-indigo-900"/>
                         </div>
                     </div>
 
-                    <div className="flex gap-4 mt-2 mb-4">
+                    <div className="flex gap-4 mt-2 mb-4 max-sm:flex-col max-sm:mb-0">
                         <Button variant="contained" type="submit">Done</Button>
                         <Button onClick={props.OnCancelClicked}>Cancel</Button>
                     </div>
