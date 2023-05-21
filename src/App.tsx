@@ -1,4 +1,4 @@
-import { AddSection, RecentlyAddedSection} from "./sections"
+import { AddSection, SalesAddedSection, PurchaseAddedSection} from "./sections"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { randomId } from "@mui/x-data-grid-generator";
@@ -14,7 +14,7 @@ const darkTheme = createTheme({
 });
 
 // Initial raw data
-const initialRows: GridRowsProp = [
+const initialSalesRows: GridRowsProp = [
   {
     id: randomId(),
     date: new Date(2022, 10, 25, 22, 15),
@@ -142,10 +142,30 @@ const initialRows: GridRowsProp = [
   },
 ]
 
+const initialPurchaseRows: GridRowsProp = [
+  {
+    id: randomId(),
+    date: new Date(2022, 10, 25, 22, 15),
+    name: "Thomas Yu",
+    lorry: "JSR3418",
+    c12: 1,
+    c12Tong:4,
+    c14: 2,
+    c14Tong: 7,
+    a14c: 0,
+    a14cTong: 0,
+    c50: 1,
+    c50Tong:21,
+    receiptNumber: 0,
+    notes: "hi",
+  },
+]
+
 function Main() {
   // "Lift the State" so it can be shared across components
   // In the future, initial rows can be from some online database
-  const [rows, setRows] = useState(initialRows);
+  const [salesRows, salesSetRows] = useState(initialSalesRows);
+  const [purchaseRows, purchaseSetRows] = useState(initialPurchaseRows);
 
   return (
     <>
@@ -154,8 +174,9 @@ function Main() {
       </header>
 
       <main className="flex flex-col gap-4 m-5">
-        <AddSection setRows={setRows} />
-        <RecentlyAddedSection rows={rows} setRows={setRows} />
+        <AddSection salesSetRows={salesSetRows} />
+        <SalesAddedSection salesRows={salesRows} salesSetRows={salesSetRows} />
+        <PurchaseAddedSection purchaseRows={purchaseRows} purchaseSetRows={purchaseSetRows}/>
       </main>
     </>
   )

@@ -7,7 +7,7 @@ import { ActiveSubsection } from "./components/ActiveSubsection";
 import { InactiveSubsection } from "./components/InactiveSubsection";
 
 interface AddSectionProps {
-    setRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
+    salesSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
 }
 
 export const AddSection = (props: AddSectionProps) => {
@@ -22,7 +22,7 @@ export const AddSection = (props: AddSectionProps) => {
                     OnDoneClicked={(formDataObject) => {
                         // console.table(formDataObject);
 
-                        props.setRows((oldRows) => {
+                        props.salesSetRows((oldRows) => {
                             const newId = randomId();
                             return [...oldRows, { ...formDataObject, id: newId }]
                         })
