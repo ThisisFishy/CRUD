@@ -39,7 +39,6 @@ export const SearchSection = (props: SearchSectionProps) => {
                 />
             }
 
-                <DataTable {...props} isEditable={true} />
             </div>
 
             

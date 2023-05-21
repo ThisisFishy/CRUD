@@ -1,4 +1,4 @@
-import { AddSection, RecentlyAddedSection, SearchSection } from "./sections"
+import { AddSection, RecentlyAddedSection, SearchSection, SearchResultSection } from "./sections"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { randomId } from "@mui/x-data-grid-generator";
@@ -53,6 +53,7 @@ function Main() {
         <AddSection setRows={setRows} />
         <RecentlyAddedSection rows={rows} setRows={setRows} />
         <SearchSection rows={rows} setRows={setRows} />
+        <SearchResultSection rows={rows} setRows={setRows} />
       </main>
     </>
   )

@@ -33,7 +33,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
         // Extract the raw data and convert it into a FormDataObject
         data.forEach((value, key) => {
             // Ignore empty fields
-            if (value.toString().length === 0) return;
+            // if (value.toString().length === 0) return;
 
             // console.log(key, value)
 

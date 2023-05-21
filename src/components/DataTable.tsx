@@ -1,5 +1,6 @@
-import { DataGrid, GridActionsCellItem, GridColDef, GridRowId, GridRowModel, GridRowsProp } from "@mui/x-data-grid"
+import { DataGrid, GridActionsCellItem, GridColDef, GridRowId, GridRowModel, GridRowsProp, GridFilterModel } from "@mui/x-data-grid"
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+import { useState } from "react";
 
 interface DataTableProps {
     rows: GridRowsProp
@@ -212,6 +213,10 @@ export const DataTable = (props: DataTableProps) => {
         props.setRows(props.rows.filter((row) => row.id !== id));
     }
 
+    const [filterModel, setFilterModel] = useState<GridFilterModel>({
+        items: [],
+      });
+
     if (props.rows.length === 0) {
         return (
             <p className="text-gray-500" >Nothing is added yet.</p>
@@ -226,7 +231,8 @@ export const DataTable = (props: DataTableProps) => {
                 // editMode="row" // Set to "row" to edit the entire row instead of per cell
                 processRowUpdate={onRowUpdate}
                 isCellEditable={() => props.isEditable}
-
+                filterModel={filterModel}
+                onFilterModelChange={(model) => setFilterModel(model)}
                 initialState={{
                     columns: {
                         // Hide columns if false
