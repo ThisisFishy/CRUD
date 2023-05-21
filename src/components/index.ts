@@ -1,2 +1,2 @@
 export * from "./SectionHeader"
-export * from "./DataTable"
+export * from "./SalesDataTable"

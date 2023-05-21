@@ -9,7 +9,7 @@ interface DataTableProps {
 }
 
 // Reference: https://mui.com/x/react-data-grid/editing/#full-featured-crud-component
-export const DataTable = (props: DataTableProps) => {
+export const SalesDataTable = (props: DataTableProps) => {
 
     // First define what are the columns
     const columns: GridColDef[] = [

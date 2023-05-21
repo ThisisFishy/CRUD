@@ -1,5 +1,5 @@
 import { GridRowsProp } from "@mui/x-data-grid"
-import { DataTable, SectionHeader } from "../components"
+import { SalesDataTable, SectionHeader } from "../components"
 
 interface RecentlyAddedSectionProps {
     rows: GridRowsProp,
@@ -11,7 +11,7 @@ export const RecentlyAddedSection = (props: RecentlyAddedSectionProps) => {
     return (
         <section>
             <SectionHeader title="Recently Added:" />
-            <DataTable {...props} isEditable={true} />
+            <SalesDataTable {...props} isEditable={true} />
         </section>
     )
 }
