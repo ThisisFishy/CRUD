@@ -1,7 +1,7 @@
 import { GridRowsProp } from "@mui/x-data-grid"
 // import { Button } from "@mui/material"
 import { randomId } from "@mui/x-data-grid-generator";
-import { DataTable, SectionHeader } from "../../components"
+import { SectionHeader } from "../../components"
 
 import { useState } from "react";
 import { ActiveSubsection } from "./components/ActiveSubsection";
