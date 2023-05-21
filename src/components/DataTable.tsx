@@ -1,4 +1,4 @@
-import { DataGrid, GridActionsCellItem, GridColDef, GridRowId, GridRowModel, GridRowsProp, GridFilterModel } from "@mui/x-data-grid"
+import { DataGrid, GridActionsCellItem, GridColDef, GridRowId, GridRowModel, GridRowsProp, GridFilterModel, GridToolbar } from "@mui/x-data-grid"
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import { useState } from "react";
 
@@ -228,6 +228,7 @@ export const DataTable = (props: DataTableProps) => {
             <DataGrid
                 columns={columns}
                 rows={props.rows}
+                slots={{ toolbar: GridToolbar }}
                 // editMode="row" // Set to "row" to edit the entire row instead of per cell
                 processRowUpdate={onRowUpdate}
                 isCellEditable={() => props.isEditable}
