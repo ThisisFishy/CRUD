@@ -1,4 +1,5 @@
 export * from "./AddSection"
 export * from "./SalesAddedSection"
 export * from "./SearchSection"
+export * from "./PurchaseAddSection"
 export * from "./PurchaseAddedSection"

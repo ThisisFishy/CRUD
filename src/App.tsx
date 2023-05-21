@@ -1,4 +1,4 @@
-import { AddSection, SalesAddedSection, PurchaseAddedSection} from "./sections"
+import { AddSection, SalesAddedSection, PurchaseAddSection, PurchaseAddedSection} from "./sections"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { randomId } from "@mui/x-data-grid-generator";
@@ -176,6 +176,7 @@ function Main() {
       <main className="flex flex-col gap-4 m-5">
         <AddSection salesSetRows={salesSetRows} />
         <SalesAddedSection salesRows={salesRows} salesSetRows={salesSetRows} />
+        <PurchaseAddSection purchaseSetRows={purchaseSetRows} />
         <PurchaseAddedSection purchaseRows={purchaseRows} purchaseSetRows={purchaseSetRows}/>
       </main>
     </>
