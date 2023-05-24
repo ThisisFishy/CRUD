@@ -213,7 +213,12 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                     </div>
 
                     <div className="flex gap-4 mt-2 mb-4 max-sm:flex-col max-sm:mb-0">
-                        <Button variant="contained" type="submit">Done</Button>
+                        <Button variant="contained" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                                <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" />
+                            </svg>
+                            Done
+                        </Button>
                         <Button onClick={props.OnCancelClicked}>Cancel</Button>
                     </div>
                 </div>
