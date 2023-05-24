@@ -1,5 +1,5 @@
-import { Button, FormLabel, TextField } from "@mui/material"
-
+import { Button, FormLabel, TextField , FormControl, Autocomplete} from "@mui/material"
+import { presetLorry, presetDriver } from "../../../components/presetData"
 interface ActiveSubsectionProps {
     OnDoneClicked: (formDataObject: FormDataObject) => void,
     OnCancelClicked: () => void
@@ -21,6 +21,11 @@ export interface FormDataObject {
     account: string,
     notes: string,
 }
+
+
+// const presetDriver = ["Apek", "Param", "KK", "SHANGKAR", "DUNESH KUMAR", "TINAGARAN", "ARIF", "DINESH KUMAR", "SATYA", " 000", "New Town", "ganesan", "TINAGARAN"]
+// const presetLorry = ["*NBG 8366", "*JJX 919", "*JEB 9452", "*JQS 8548", "*JDW 5576","000", "BQE 5908/52", "BQF 5908", "BQJ 5908", "JDJ 2361","JDK 6889", "JEM 9000","JFW5238", "JJE 7811", "JLU 5908", "JMT 9746", "JMU 4048", "JPT 947", "JQU 7099", "JQV 6730", "JQW 4137", "JQX9471", "JRA 3161","JRB 6132", "JRK 6132", "JRN 3192", "JRY 8965", "JRT 2519", "JSS 5908", "JTU 5908", "JTW 5908","JTP 5908", "JUA 9892", "JUB 5908", "JUH 5908", "MAB7861", "VDN 5908", "VDJ 5908", "VED 5908", "VEK 5908","VEQ 5908","VES 5908"]
+
 
 export const ActiveSubsection = (props: ActiveSubsectionProps) => {
 
@@ -134,8 +139,25 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                             <div>
                                 <TextField name="date" required={true} size="small" type="datetime-local" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                             </div>
-                            <TextField name="name" required={true} size="small" label="Name" className="shadow-sm shadow-indigo-900"/>
-                            <TextField name="lorry" required={true} size="small" label="Lorry" className="shadow-sm shadow-indigo-900"/>
+                            <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
+                                        <Autocomplete
+                                            options={presetDriver}
+                                            renderInput={(params) => (
+                                                <TextField {...params} required label="Driver" size="small" />
+                                            )}
+                                            freeSolo //To allow you to input by yourself 
+                                        />
+                            </FormControl>  
+
+                            <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
+                                        <Autocomplete
+                                            options={presetLorry}
+                                            renderInput={(params) => (
+                                                <TextField {...params} required label="Lorry" size="small" />
+                                            )}
+                                            freeSolo //To allow you to input by yourself 
+                                        />
+                            </FormControl>                      
                         </div>
                     </div>
 
