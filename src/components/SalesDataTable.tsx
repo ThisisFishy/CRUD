@@ -25,7 +25,10 @@ export const SalesDataTable = (props: DataTableProps) => {
 
             // In case given a string, converts given string into a Date() object
             // https://mui.com/x/react-data-grid/column-definition/#converting-types
-            valueGetter: ({ value }) => value && new Date(value)
+            valueGetter: ({ value }) => value && new Date(value),
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         // Name
@@ -35,6 +38,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "string",
             width: 150,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         // Lorry
@@ -44,6 +50,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "string",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         // C12
@@ -53,6 +62,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
         
         //C12Tong
@@ -62,6 +74,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -70,6 +85,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -78,6 +96,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -86,6 +107,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -94,6 +118,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -102,6 +129,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -110,6 +140,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -118,6 +151,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -126,6 +162,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -134,6 +173,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -142,6 +184,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -150,6 +195,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -158,6 +206,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             type: "number",
             width:110,
             editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         {
@@ -167,6 +218,9 @@ export const SalesDataTable = (props: DataTableProps) => {
             editable: false,
             width:170,
             valueGetter: (params) => params.row.gasPayment + params.row.tongPayment + params.row.bayarHutang,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
         },
 
         // Actions
