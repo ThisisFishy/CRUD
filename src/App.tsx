@@ -26,10 +26,18 @@ function Main() {
       </header>
 
       <main className="flex flex-col gap-4 m-5">
-        <AddSection salesSetRows={salesSetRows} />
-        <SalesAddedSection salesRows={salesRows} salesSetRows={salesSetRows} />
-        <PurchaseAddSection purchaseSetRows={purchaseSetRows} />
-        <PurchaseAddedSection purchaseRows={purchaseRows} purchaseSetRows={purchaseSetRows}/>
+        <div className="mt-7">  
+          <AddSection salesSetRows={salesSetRows}/>
+        </div>
+        <div className="mt-7">
+          <SalesAddedSection salesRows={salesRows} salesSetRows={salesSetRows}/>
+        </div>
+        <div className="mt-7">
+          <PurchaseAddSection purchaseSetRows={purchaseSetRows}/>
+        </div>
+        <div className="mt-7">
+          <PurchaseAddedSection purchaseRows={purchaseRows} purchaseSetRows={purchaseSetRows}/>
+        </div>
       </main>
     </>
   )

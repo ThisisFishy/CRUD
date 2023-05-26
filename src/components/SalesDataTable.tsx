@@ -36,7 +36,7 @@ export const SalesDataTable = (props: DataTableProps) => {
             field: "name",
             headerName: "Name",
             type: "string",
-            width: 150,
+            width: 130,
             editable: true,
             renderHeader: (params) => {
                 return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
@@ -48,7 +48,7 @@ export const SalesDataTable = (props: DataTableProps) => {
             field: "lorry",
             headerName: "Lorry",
             type: "string",
-            width:110,
+            width:90,
             editable: true,
             renderHeader: (params) => {
                 return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
@@ -60,7 +60,7 @@ export const SalesDataTable = (props: DataTableProps) => {
             field: "c12",
             headerName: "C12",
             type: "number",
-            width:110,
+            width:70,
             editable: true,
             renderHeader: (params) => {
                 return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
@@ -83,7 +83,7 @@ export const SalesDataTable = (props: DataTableProps) => {
             field: "c14",
             headerName: "C14",
             type: "number",
-            width:110,
+            width:70,
             editable: true,
             renderHeader: (params) => {
                 return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
@@ -105,7 +105,7 @@ export const SalesDataTable = (props: DataTableProps) => {
             field: "a14c",
             headerName: "14C",
             type: "number",
-            width:110,
+            width:70,
             editable: true,
             renderHeader: (params) => {
                 return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
@@ -127,7 +127,7 @@ export const SalesDataTable = (props: DataTableProps) => {
             field: "c50",
             headerName: "C50",
             type: "number",
-            width:110,
+            width:70,
             editable: true,
             renderHeader: (params) => {
                 return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
@@ -160,7 +160,7 @@ export const SalesDataTable = (props: DataTableProps) => {
             field: "hutang",
             headerName: "Hutang",
             type: "number",
-            width:110,
+            width:90,
             editable: true,
             renderHeader: (params) => {
                 return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
