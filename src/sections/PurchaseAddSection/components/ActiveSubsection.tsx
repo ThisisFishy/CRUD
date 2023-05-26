@@ -160,20 +160,20 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <FormLabel>Non-essential Data</FormLabel>
                         <div className="flex gap-4 max-sm:flex-col">
                             <TextField name="c12" size="small" label="C12" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                            <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="w-48 shadow-sm shadow-indigo-900"/>
-                            <TextField name="c14" size="small" label="C14" type="number" className="w-48 shadow-sm shadow-indigo-900"/>
-                            <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="w-48 shadow-sm shadow-indigo-900"/>
+                            <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="c14" size="small" label="C14" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                         </div>
                         <div className="flex gap-4 mt-1 max-sm:flex-col">
                             <TextField name="a14c" size="small" label="14c" type="number" className=" w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                            <TextField name="a14cTong" size="small" label="14cTong" type="number" className="w-48 shadow-sm shadow-indigo-900"/>
-                            <TextField name="c50" size="small" label="C50" type="number" className="w-48 shadow-sm shadow-indigo-900"/>
-                            <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="w-48 shadow-sm shadow-indigo-900"/>
+                            <TextField name="a14cTong" size="small" label="14cTong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="c50" size="small" label="C50" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                         </div>
                         <div className="flex gap-4 mt-1 max-sm:flex-col">
                             <TextField name="receiptNumber" size="small" label="Receipt No."  className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                            <TextField name="account" size="small" label="Account"  className="w-48 shadow-sm shadow-indigo-900"/>
-                            <TextField name="notes" size="small" label="Notes"  className="w-48 shadow-sm shadow-indigo-900"/>
+                            <TextField name="account" size="small" label="Account"  className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="notes" size="small" label="Notes"  className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                         </div>
                     </div>
 
