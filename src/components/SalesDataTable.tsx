@@ -211,17 +211,17 @@ export const SalesDataTable = (props: DataTableProps) => {
             }
         },
 
-        {
-            field: "totalCashCollection",
-            headerName: "Total Cash Coleection",
-            type: "number",
-            editable: false,
-            width:170,
-            valueGetter: (params) => params.row.gasPayment + params.row.tongPayment + params.row.bayarHutang,
-            renderHeader: (params) => {
-                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
-            }
-        },
+        // {
+        //     field: "totalCashCollection",
+        //     headerName: "Total Cash Coleection",
+        //     type: "number",
+        //     editable: false,
+        //     width:170,
+        //     valueGetter: (params) => params.row.gasPayment + params.row.tongPayment + params.row.bayarHutang,
+        //     renderHeader: (params) => {
+        //         return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+        //     }
+        // },
 
         // Actions
         // https://mui.com/x/react-data-grid/column-definition/#special-properties

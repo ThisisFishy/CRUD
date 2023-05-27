@@ -25,7 +25,7 @@ export interface FormDataObject {
     bayarHutang: number,
     pinjamTong: number,
     pulangTong: number,
-    totalCashCollection: number
+    // totalCashCollection: number
 }
 
 export const ActiveSubsection = (props: ActiveSubsectionProps) => {
@@ -60,7 +60,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             bayarHutang: 0,
             pinjamTong: 0,
             pulangTong: 0,
-            totalCashCollection: 0
+            // totalCashCollection: 0
         }
 
         // Extract the raw data and convert it into a FormDataObject
