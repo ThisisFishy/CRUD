@@ -22,12 +22,11 @@ function Main() {
 
   return (
     <>
-      <header className="flex justify-center pt-4">
-        <img className="h-24" src="src/Image/GloryGas_title.png"/>
-        {/* <h1 className="font-bold text-3xl text-white">Glory Gas</h1> */}
-      </header>
+      {/* <header className="flex justify-center pt-4">
+        <h1 className="font-bold text-3xl text-white">Glory Gas</h1>
+      </header> */}
 
-      <main className="flex flex-col gap-4 m-5">
+      <main className="flex flex-col gap-4 m-5 mt-0">
         <div className="mt-7">  
           <AddSection salesSetRows={salesSetRows}/>
         </div>
