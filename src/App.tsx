@@ -13,6 +13,7 @@ const darkTheme = createTheme({
   },
 });
 
+
 function Main() {
   // "Lift the State" so it can be shared across components
   // In the future, initial rows can be from some online database
@@ -22,7 +23,7 @@ function Main() {
   return (
     <>
       <header className="flex justify-center pt-4">
-        <img className="h-24" src="src\Image\GloryGas_title.png"/>
+        <img className="h-24" src="src/Image/GloryGas_title.png"/>
         {/* <h1 className="font-bold text-3xl text-white">Glory Gas</h1> */}
       </header>
 
