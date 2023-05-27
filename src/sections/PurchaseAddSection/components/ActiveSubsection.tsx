@@ -161,7 +161,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <div className="flex gap-4 max-sm:flex-col">
                             <TextField name="c12" size="small" label="C12" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                             <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                            <TextField name="c14" size="small" label="C14" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="c14" size="small" label="C14" required={true} type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                             <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                         </div>
                         <div className="flex gap-4 mt-1 max-sm:flex-col">
