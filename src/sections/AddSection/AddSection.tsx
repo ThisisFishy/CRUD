@@ -15,7 +15,7 @@ export const AddSection = (props: AddSectionProps) => {
 
     return (
         <section>
-            <SectionHeader title="Add Section lalala" />
+            <SectionHeader title="Add Section" />
 
             {isActive ?
                 <ActiveSubsection
