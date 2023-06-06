@@ -1,12 +1,13 @@
 import { GridRowsProp } from "@mui/x-data-grid"
-import { SalesDataTable, SectionHeader } from "../components"
+import SalesDataTable from "../components/SalesDataTable";
+import SectionHeader from "../components/SectionHeader";
 
 interface SalesAddedSectionProps {
     salesRows: GridRowsProp,
     salesSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
 }
 
-export const SalesAddedSection = (props: SalesAddedSectionProps) => {
+const SalesAddedSection = (props: SalesAddedSectionProps) => {
 
     return (
         <section>
@@ -15,3 +16,5 @@ export const SalesAddedSection = (props: SalesAddedSectionProps) => {
         </section>
     )
 }
+
+export default SalesAddedSection;

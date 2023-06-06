@@ -2,15 +2,15 @@ import { useState } from "react";
 import { GridRowsProp } from "@mui/x-data-grid";
 import { randomId } from "@mui/x-data-grid-generator";
 
-import { SectionHeader } from "../../components"
-import { ActiveSubsection } from "./components/ActiveSubsection";
-import { InactiveSubsection } from "./components/InactiveSubsection";
+import SectionHeader from "../../components/SectionHeader";
+import ActiveSubsection from "./components/ActiveSubsection";
+import InactiveSubsection from "./components/InactiveSubsection";
 
 interface AddSectionProps {
     salesSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
 }
 
-export const AddSection = (props: AddSectionProps) => {
+const AddSection = (props: AddSectionProps) => {
     const [isActive, setIsActive] = useState(false);
 
     return (
@@ -39,3 +39,5 @@ export const AddSection = (props: AddSectionProps) => {
         </section>
     )
 }
+
+export default AddSection;

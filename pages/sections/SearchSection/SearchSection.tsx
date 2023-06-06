@@ -1,18 +1,18 @@
 import { GridRowsProp } from "@mui/x-data-grid"
 // import { Button } from "@mui/material"
 import { randomId } from "@mui/x-data-grid-generator";
-import { SectionHeader } from "../../components"
+import SectionHeader from "../../components/SectionHeader"
 
 import { useState } from "react";
-import { ActiveSubsection } from "./components/ActiveSubsection";
-import { InactiveSubsection } from "./components/InactiveSubsection";
+import ActiveSubsection from "./components/ActiveSubsection";
+import InactiveSubsection from "./components/InactiveSubsection";
 
 interface SearchSectionProps {
     rows: GridRowsProp,
     setRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
 }
 
-export const SearchSection = (props: SearchSectionProps) => {
+const SearchSection = (props: SearchSectionProps) => {
     const [isActive, setIsActive] = useState(false);
     return (
         <section>
@@ -45,3 +45,5 @@ export const SearchSection = (props: SearchSectionProps) => {
         </section>
     )
 }
+
+export default SearchSection;

@@ -4,8 +4,10 @@ interface InactiveSubsectionProps {
     OnAddClicked: () => void
 }
 
-export const InactiveSubsection = (props: InactiveSubsectionProps) => {
+const InactiveSubsection = (props: InactiveSubsectionProps) => {
     return (
         <Button variant="contained" onClick={props.OnAddClicked} className="flex w-20">Search</Button>
     )
 }
+
+export default InactiveSubsection;

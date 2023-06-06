@@ -36,31 +36,9 @@ const createRandomRowForSales = () => {
   };
 }
 
-export const initialSalesRows: GridRowsProp = Array(2).fill(0).map(createRandomRowForSales);
+const initialSalesRows: GridRowsProp = Array(2).fill(0).map(createRandomRowForSales);
 
-const createRandomRowForPurchase = () => {
-  const randomIndex = Math.floor(Math.random() * Name123.length);
-  const randomName = Name123[randomIndex];
+export default initialSalesRows;
 
-  return {
-    id: randomId(),
-    date: randomDate(startDate, endDate),
-    name: randomName,
-    lorry: "JSR3418",
-    c12: randomInt(1,10),
-    c12Tong: randomInt(1,10),
-    c14: randomInt(1,10),
-    c14Tong: randomInt(1,10),
-    a14c: randomInt(1,10),
-    a14cTong: randomInt(1,10),
-    c50: randomInt(1,10),
-    c50Tong: randomInt(1,10),
-    receiptNumber: randomInt(1,10),
-    account: randomInt(1,10),
-    notes: randomInt(1,10),
-  };
-}
-
-export const initialPurchaseRows: GridRowsProp = Array(2).fill(0).map(createRandomRowForPurchase);
 
 

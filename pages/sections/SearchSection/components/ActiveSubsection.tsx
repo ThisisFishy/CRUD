@@ -11,7 +11,7 @@ export interface FormDataObject {
     lorry: string,
 }
 
-export const ActiveSubsection = (props: ActiveSubsectionProps) => {
+const ActiveSubsection = (props: ActiveSubsectionProps) => {
 
     // Called when the submit button is clicked
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -80,3 +80,5 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
         </div>
     )
 }
+
+export default ActiveSubsection;

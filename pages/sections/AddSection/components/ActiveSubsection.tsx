@@ -29,7 +29,7 @@ export interface FormDataObject {
     // totalCashCollection: number
 }
 
-export const ActiveSubsection = (props: ActiveSubsectionProps) => {
+const ActiveSubsection = (props: ActiveSubsectionProps) => {
     const [showNonEssential, setShowNonEssential] = useState(false);
     const toggleNonEssential = () => setShowNonEssential(!showNonEssential);
     // Called when the submit button is clicked
@@ -234,3 +234,5 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
         </div>
     )
 }
+
+export default ActiveSubsection;

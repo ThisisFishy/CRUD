@@ -1,12 +1,14 @@
 import { GridRowsProp } from "@mui/x-data-grid"
-import { PurchaseDataTable, SectionHeader } from "../components"
+import PurchaseDataTable from "../components/PurchaseDataTable";
+import SectionHeader from "../components/SectionHeader";
+
 
 interface PurchaseAddedSectionProps {
     purchaseRows: GridRowsProp,
     purchaseSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
 }
 
-export const PurchaseAddedSection = (props: PurchaseAddedSectionProps) => {
+const PurchaseAddedSection = (props: PurchaseAddedSectionProps) => {
 
     return (
         <section>
@@ -15,3 +17,5 @@ export const PurchaseAddedSection = (props: PurchaseAddedSectionProps) => {
         </section>
     )
 }
+
+export default PurchaseAddedSection;

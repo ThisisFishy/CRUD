@@ -9,7 +9,7 @@ interface DataTableProps {
 }
 
 // Reference: https://mui.com/x/react-data-grid/editing/#full-featured-crud-component
-export const PurchaseDataTable = (props: DataTableProps) => {
+const PurchaseDataTable = (props: DataTableProps) => {
 
     // First define what are the columns
     const columns: GridColDef[] = [
@@ -256,3 +256,5 @@ export const PurchaseDataTable = (props: DataTableProps) => {
         </div>
     )
 }
+
+export default PurchaseDataTable;
