@@ -1,5 +1,6 @@
-import { Button, FormLabel, TextField , FormControl, Autocomplete} from "@mui/material"
-import { presetLorry, presetDriver } from "../../../components/presetData"
+import { Button, FormLabel, TextField , FormControl, Autocomplete} from "@mui/material";
+import presetLorry from "../../../components/presetLorry";
+import presetDriver from "../../../components/presetDriver";
 import { useState } from "react";
 
 interface ActiveSubsectionProps {
