@@ -1,13 +1,13 @@
 // import { SalesAddedSection, PurchaseAddSection, PurchaseAddedSection} from "./sections"
-import AddSection from "./sections/AddSection/AddSection";
-import SalesAddedSection from "./sections/SalesAddedSection";
-import PurchaseAddSection from "./sections/PurchaseAddSection/PurchaseAddSection";
-import PurchaseAddedSection from "./sections/PurchaseAddedSection";
+import AddSection from "../sections/AddSection/AddSection";
+import SalesAddedSection from "../sections/SalesAddedSection";
+import PurchaseAddSection from "../sections/PurchaseAddSection/PurchaseAddSection";
+import PurchaseAddedSection from "../sections/PurchaseAddedSection";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useState } from "react";
-import initialSalesRows from "./components/DataExampleForSales"; //generate some random data
-import initialPurchaseRows from "./components/DataExampleForPurchase"; //generate some random data
+import initialSalesRows from "../components/DataExampleForSales"; //generate some random data
+import initialPurchaseRows from "../components/DataExampleForPurchase"; //generate some random data
 
 // Set dark theme by default
 // Reference: https://mui.com/material-ui/customization/dark-mode/
