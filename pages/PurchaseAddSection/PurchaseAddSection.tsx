@@ -2,27 +2,26 @@ import { useState } from "react";
 import { GridRowsProp } from "@mui/x-data-grid";
 import { randomId } from "@mui/x-data-grid-generator";
 
-import SectionHeader from "../../../components/SectionHeader";
+import SectionHeader from "../../components/SectionHeader"
 import ActiveSubsection from "./components/ActiveSubsection";
 import InactiveSubsection from "./components/InactiveSubsection";
 
 interface AddSectionProps {
-    salesSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
+    purchaseSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
 }
 
-const AddSection = (props: AddSectionProps) => {
+const PurchaseAddSection = (props: AddSectionProps) => {
     const [isActive, setIsActive] = useState(false);
 
     return (
-        <section>
-            <SectionHeader title="Add Sectionlaalaa" />
-
+        <section className="mt-3">
+                <SectionHeader title="Purchase Section"/>
             {isActive ?
                 <ActiveSubsection
                     OnDoneClicked={(formDataObject) => {
                         // console.table(formDataObject);
 
-                        props.salesSetRows((oldRows) => {
+                        props.purchaseSetRows((oldRows) => {
                             const newId = randomId();
                             return [...oldRows, { ...formDataObject, id: newId }]
                         })
@@ -40,4 +39,4 @@ const AddSection = (props: AddSectionProps) => {
     )
 }
 
-export default AddSection;
+export default PurchaseAddSection;

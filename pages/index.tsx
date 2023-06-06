@@ -1,7 +1,7 @@
 // import { SalesAddedSection, PurchaseAddSection, PurchaseAddedSection} from "./sections"
-import AddSection from "./sections/AddSection/AddSection";
+import AddSection from "./AddSection/AddSection";
 import SalesAddedSection from "./sections/SalesAddedSection";
-import PurchaseAddSection from "./sections/PurchaseAddSection/PurchaseAddSection";
+import PurchaseAddSection from "./PurchaseAddSection/PurchaseAddSection";
 import PurchaseAddedSection from "./sections/PurchaseAddedSection";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';

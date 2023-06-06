@@ -1,6 +1,6 @@
-import { Button, FormLabel, TextField , FormControl, Autocomplete} from "@mui/material";
-import presetLorry from "../../../../components/presetLorry";
-import presetDriver from "../../../../components/presetDriver";
+import { Button, FormLabel, TextField, FormControl, Autocomplete} from "@mui/material";
+import presetNames from "../../../components/presetNames";
+import presetLorry from "../../../components/presetLorry";
 import { useState } from "react";
 
 interface ActiveSubsectionProps {
@@ -20,9 +20,13 @@ export interface FormDataObject {
     a14cTong: number,
     c50: number,
     c50Tong: number,
-    receiptNumber: string,
-    account: string,
-    notes: string,
+    gasPayment: number,
+    hutang: number,
+    tongPayment: number,
+    bayarHutang: number,
+    pinjamTong: number,
+    pulangTong: number,
+    // totalCashCollection: number
 }
 
 const ActiveSubsection = (props: ActiveSubsectionProps) => {
@@ -51,9 +55,13 @@ const ActiveSubsection = (props: ActiveSubsectionProps) => {
             a14cTong: 0,
             c50: 0,
             c50Tong:0,
-            receiptNumber: "",
-            account: "",
-            notes: "",
+            gasPayment: 0,
+            hutang: 0,
+            tongPayment: 0,
+            bayarHutang: 0,
+            pinjamTong: 0,
+            pulangTong: 0,
+            // totalCashCollection: 0
         }
 
         // Extract the raw data and convert it into a FormDataObject
@@ -109,18 +117,33 @@ const ActiveSubsection = (props: ActiveSubsectionProps) => {
                     formDataObject.c50Tong = parseInt(value.toString());
                     break;
 
-                case "receiptNumber":
-                    formDataObject.receiptNumber = value.toString();;
+                case "gasPayment":
+                    formDataObject.gasPayment = parseInt(value.toString());
                     break;
 
-                case "account":
-                    formDataObject.account = value.toString();;
+                case "hutang":
+                    formDataObject.hutang = parseInt(value.toString());
                     break;
                 
-                case "notes":
-                    formDataObject.notes = value.toString();;
+                case "tongPayment":
+                    formDataObject.tongPayment = parseInt(value.toString());
                     break;
 
+                case "bayarHutang":
+                    formDataObject.bayarHutang = parseInt(value.toString());
+                    break;
+
+                case "pinjamTong":
+                    formDataObject.pinjamTong = parseInt(value.toString());
+                    break;
+
+                case "pulangTong":
+                    formDataObject.pulangTong = parseInt(value.toString());
+                    break;    
+
+                // case "totalCashCollection":
+                //     formDataObject.totalCashCollection = parseInt(value.toString())
+                //     break;
             }
         });
 
@@ -134,34 +157,49 @@ const ActiveSubsection = (props: ActiveSubsectionProps) => {
                 <div className="flex flex-col gap-4 bg-slate-900 p-5 rounded-lg shadow-lg shadow-gray-900">
                     <div className="flex flex-col gap-2 ">
                         <FormLabel>Essential Data</FormLabel>
-                        <div className="flex gap-4 max-sm:flex-col">
-                            <div>
+                        <div className="flex flex-col gap-4 max-sm:flex-col">
+                            <div className="flex flex-row gap-4 max-sm:flex-col">
                                 <TextField name="date" required={true} size="small" type="datetime-local" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                            </div>
-                            <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
+
+                                <div>
+                                    <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
                                         <Autocomplete
-                                            options={presetDriver}
+                                            options={presetNames}
                                             renderInput={(params) => (
-                                                <TextField {...params} name="name" required label="Driver" size="small" />
+                                                <TextField {...params} required name="name" label="Name" size="small" />
                                             )}
                                             freeSolo //To allow you to input by yourself 
                                         />
-                            </FormControl>  
-
-                            <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
+                                    </FormControl>
+                                </div>
+                                <div>
+                                    <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
                                         <Autocomplete
                                             options={presetLorry}
                                             renderInput={(params) => (
-                                                <TextField {...params} name="lorry" required label="Lorry" size="small" />
+                                                <TextField {...params} required name="lorry" label="Lorry" size="small" />
                                             )}
                                             freeSolo //To allow you to input by yourself 
                                         />
-                            </FormControl>   
-                            <TextField name="c14" size="small" label="C14" required={true} type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                            <TextField name="receiptNumber" size="small" label="Receipt No." required={true} className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>                   
+                                    </FormControl>
+
+                                    
+                                </div>
+                            </div>
+                            <div className="flex gap-4 mt-6 max-sm:flex-col">
+                                <TextField name="gasPayment" required={true} size="small" label="Gas Payment" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="hutang" required={true} size="small" label="Hutang" type="number" className=" w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="tongPayment" required={true} size="small" label="Tong Payment" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="bayarHutang" required={true} size="small" label="Bayar Hutang" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            </div>
+                            <div className="flex gap-4 mt-1 max-sm:flex-col">
+                                <TextField name="pinjamTong" required={true} size="small" label="Pinjam Tong" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full "/>
+                                <TextField name="pulangTong" required={true} size="small" label="Pulang Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            </div>
+                            <TextField name="c14" size="small" required={true} label="C14" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                         </div>
                     </div>
-                    
+
                     {showNonEssential && (
                         <div className="flex flex-col gap-2">
                             <FormLabel>Non-essential Data</FormLabel>
@@ -175,10 +213,6 @@ const ActiveSubsection = (props: ActiveSubsectionProps) => {
                                 <TextField name="a14cTong" size="small" label="14cTong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                                 <TextField name="c50" size="small" label="C50" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                                 <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                            </div>
-                            <div className="flex gap-4 mt-1 max-sm:flex-col">
-                                <TextField name="account" size="small" label="Account"  className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="notes" size="small" label="Notes"  className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
                             </div>
                         </div>
                     )}

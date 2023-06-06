@@ -1,30 +1,28 @@
-import { GridRowsProp } from "@mui/x-data-grid"
-// import { Button } from "@mui/material"
-import { randomId } from "@mui/x-data-grid-generator";
-import SectionHeader from "../../../components/SectionHeader"
-
 import { useState } from "react";
+import { GridRowsProp } from "@mui/x-data-grid";
+import { randomId } from "@mui/x-data-grid-generator";
+
+import SectionHeader from "../../components/SectionHeader";
 import ActiveSubsection from "./components/ActiveSubsection";
 import InactiveSubsection from "./components/InactiveSubsection";
 
-interface SearchSectionProps {
-    rows: GridRowsProp,
-    setRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
+interface AddSectionProps {
+    salesSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
 }
 
-const SearchSection = (props: SearchSectionProps) => {
+const AddSection = (props: AddSectionProps) => {
     const [isActive, setIsActive] = useState(false);
+
     return (
         <section>
-            <SectionHeader title="Search" />
+            <SectionHeader title="Add Sectionlaalaa" />
 
-            <div className="flex flex-col gap-2">
             {isActive ?
                 <ActiveSubsection
                     OnDoneClicked={(formDataObject) => {
                         // console.table(formDataObject);
 
-                        props.setRows((oldRows) => {
+                        props.salesSetRows((oldRows) => {
                             const newId = randomId();
                             return [...oldRows, { ...formDataObject, id: newId }]
                         })
@@ -38,12 +36,8 @@ const SearchSection = (props: SearchSectionProps) => {
                     OnAddClicked={() => setIsActive(true)}
                 />
             }
-
-            </div>
-
-            
         </section>
     )
 }
 
-export default SearchSection;
+export default AddSection;
