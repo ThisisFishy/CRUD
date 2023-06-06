@@ -3,8 +3,8 @@ import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import { useState } from "react";
 
 interface DataTableProps {
-    purchaseRows: any
-    purchaseSetRows: React.Dispatch<React.SetStateAction<any>>
+    purchaseRows: GridRowsProp
+    purchaseSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
     isEditable: boolean
 }
 
@@ -207,7 +207,7 @@ const PurchaseDataTable = (props: DataTableProps) => {
             // For each row in the current rows, check if the row ID is the same as the new updated row ID.
             // If it is the same row ID, map the current row to the new row instead of the old row.
             // Other rows maps to themselves, remain unchanged.
-            props.purchaseRows.map((row: GridRowModel) => (row.id === newRow.id ? newRow : row))
+            props.purchaseRows.map((row) => (row.id === newRow.id ? newRow : row))
         )
 
         return newRow; // Required! Can return an old value if somehow cannot save to server
@@ -220,7 +220,7 @@ const PurchaseDataTable = (props: DataTableProps) => {
         console.log("Deleting: ", id);
 
         // Delete is the same as filtering all the rows, filter out the row with the same ID as the row to delete
-        props.purchaseSetRows(props.purchaseRows.filter((row: GridRowModel) => row.id !== id));
+        props.purchaseSetRows(props.purchaseRows.filter((row) => row.id !== id));
     }
 
     const [filterModel, setFilterModel] = useState<GridFilterModel>({
