@@ -1,6 +1,6 @@
 import { GridRowsProp } from "@mui/x-data-grid"
-import PurchaseDataTable from "../components/PurchaseDataTable";
-import SectionHeader from "../components/SectionHeader";
+import PurchaseDataTable from "../../components/PurchaseDataTable";
+import SectionHeader from "../../components/SectionHeader";
 
 
 interface PurchaseAddedSectionProps {

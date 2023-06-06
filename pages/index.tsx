@@ -1,8 +1,8 @@
 // import { SalesAddedSection, PurchaseAddSection, PurchaseAddedSection} from "./sections"
-import AddSection from "../sections/AddSection/AddSection";
-import SalesAddedSection from "../sections/SalesAddedSection";
-import PurchaseAddSection from "../sections/PurchaseAddSection/PurchaseAddSection";
-import PurchaseAddedSection from "../sections/PurchaseAddedSection";
+import AddSection from "./sections/AddSection/AddSection";
+import SalesAddedSection from "./sections/SalesAddedSection";
+import PurchaseAddSection from "./sections/PurchaseAddSection/PurchaseAddSection";
+import PurchaseAddedSection from "./sections/PurchaseAddedSection";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useState } from "react";
