@@ -3,8 +3,8 @@ import SalesDataTable from "../../components/SalesDataTable";
 import SectionHeader from "../../components/SectionHeader";
 
 interface SalesAddedSectionProps {
-    salesRows: any,
-    salesSetRows: React.Dispatch<React.SetStateAction<any>>
+    salesRows: GridRowsProp,
+    salesSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
 }
 
 const SalesAddedSection = (props: SalesAddedSectionProps) => {

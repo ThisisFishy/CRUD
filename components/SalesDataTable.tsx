@@ -271,11 +271,11 @@ const SalesDataTable = (props: DataTableProps) => {
         items: [],
       });
 
-    if (props.salesRows.length === 0) {
-        return (
-            <p className="text-gray-500" >Nothing is added yet.</p>
-        )
-    }
+    // if (props.salesRows.length === 0) {
+    //     return (
+    //         <p className="text-gray-500" >Nothing is added yet.</p>
+    //     )
+    // }
 
     return (
         <div>

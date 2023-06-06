@@ -227,11 +227,11 @@ const PurchaseDataTable = (props: DataTableProps) => {
         items: [],
       });
 
-    if (props.purchaseRows.length === 0) {
-        return (
-            <p className="text-gray-500" >Nothing is added yet.</p>
-        )
-    }
+    // if (props.purchaseRows.length === 0) {
+    //     return (
+    //         <p className="text-gray-500" >Nothing is added yet.</p>
+    //     )
+    // }
 
     return (
         <div>

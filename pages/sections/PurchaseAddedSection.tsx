@@ -4,8 +4,8 @@ import SectionHeader from "../../components/SectionHeader";
 
 
 interface PurchaseAddedSectionProps {
-    purchaseRows: any,
-    purchaseSetRows: React.Dispatch<React.SetStateAction<any>>
+    purchaseRows: GridRowsProp,
+    purchaseSetRows: React.Dispatch<React.SetStateAction<GridRowsProp>>
 }
 
 const PurchaseAddedSection = (props: PurchaseAddedSectionProps) => {
