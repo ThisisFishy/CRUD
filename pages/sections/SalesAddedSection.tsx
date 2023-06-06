@@ -10,16 +10,9 @@ interface SalesAddedSectionProps {
 const SalesAddedSection = (props: SalesAddedSectionProps) => {
 //   const { salesRows, salesSetRows } = props;
 
-//   return (
-//     <section>
-//       <SectionHeader title="Sales Added:" />
-//       <SalesDataTable 
-//         salesRows={salesRows}
-//         salesSetRows={salesSetRows}
-//         isEditable={true}
-//       />
-//     </section>
-//   );
+  return (
+    <p>wtf</p>
+  );
 };
 
 export default SalesAddedSection;

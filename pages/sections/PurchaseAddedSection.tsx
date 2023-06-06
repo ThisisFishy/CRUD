@@ -10,15 +10,9 @@ interface PurchaseAddedSectionProps {
 const PurchaseAddedSection = (props: PurchaseAddedSectionProps) => {
     // const { purchaseRows, purchaseSetRows } = props;
 
-    // return (
-    //     <section>
-    //         <SectionHeader title="Purchase Added:" />
-    //         <PurchaseDataTable 
-    //             purchaseRows={purchaseRows}
-    //             purchaseSetRows={purchaseSetRows} 
-    //             isEditable={true} />
-    //     </section>
-    // )
+    return (
+       <p>wtf</p>
+    )
 }
 
 export default PurchaseAddedSection;
