@@ -46,13 +46,13 @@ function Main() {
           <AddSection salesSetRows={salesSetRows}/>
         </div>
         <div className="mt-7">
-          <SalesAddedSection salesRows={salesRows} salesSetRows={salesSetRows}/>
+          <SalesAddedSection />
         </div>
         <div className="mt-7">
           <PurchaseAddSection purchaseSetRows={purchaseSetRows}/>
         </div>
         <div className="mt-7">
-          <PurchaseAddedSection purchaseRows={purchaseRows} purchaseSetRows={purchaseSetRows}/>
+          <PurchaseAddedSection />
         </div>
       </main>
     </>
