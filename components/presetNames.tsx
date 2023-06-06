@@ -1,2 +1,0 @@
-const presetNames = ["000", "ah pek dima", "Baani Gas", "Cash", "Dunesh Kumar", "Eik Heng (Lima Kedai)", "Fuli", "Ganesan", "Glory Gas", "Hantu", "Jeffry B.Borha", "KEMPAS BABI", "KIONG", "Kota Jaya Gas", "Kumar", "Lim Soon Hin", "Maliga", "Mamat", "Md Amir", "MD NAZRI", "Nathan", "New Town (CAL)", "New Town (SUMMIT)", "Norazman", "PERLING", "public", "Sham", "shortage", "Syah gas", "Thalabathy", "TINAGARAN", "VINOD", "Voon (Abang)", "Voon (Adik)", "WKU6444", "YEE YEU WEI (I)"];
-export default presetNames;
