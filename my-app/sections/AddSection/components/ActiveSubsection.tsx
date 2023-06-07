@@ -150,7 +150,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
     }
 
     return (
-        <div className="flex flex-col gap-4 ml-4 max-sm:justify-center max-sm:ml-0">
+        <div className="flex flex-col gap-4 max-sm:justify-center max-sm:ml-0">
 
             <form onSubmit={onSubmit}>
                 <div className="flex flex-col gap-4 bg-slate-900 p-5 rounded-lg shadow-lg shadow-gray-900">

@@ -23,7 +23,6 @@ const darkTheme = createTheme({
 });
 
 
-
 function Main() {
   // "Lift the State" so it can be shared across components
   // In the future, initial rows can be from some online database

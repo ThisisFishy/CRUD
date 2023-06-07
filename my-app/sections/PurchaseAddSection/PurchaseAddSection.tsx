@@ -15,7 +15,7 @@ export const PurchaseAddSection = (props: AddSectionProps) => {
 
     return (
         <section className="mt-3">
-            <SectionHeader title="Purchase Section" />
+            {/* <SectionHeader title="Purchase Section" /> */}
             {isActive ?
                 <ActiveSubsection
                     OnDoneClicked={(formDataObject) => {
