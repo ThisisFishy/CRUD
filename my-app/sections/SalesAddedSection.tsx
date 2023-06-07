@@ -1,5 +1,5 @@
 import { GridRowsProp } from "@mui/x-data-grid"
-import { SalesDataTable, SectionHeader } from "../components"
+import { SalesDataTable, SectionHeader } from "my-app/components"
 
 interface SalesAddedSectionProps {
     salesRows: GridRowsProp,

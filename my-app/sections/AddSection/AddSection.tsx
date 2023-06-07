@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GridRowsProp } from "@mui/x-data-grid";
 import { randomId } from "@mui/x-data-grid-generator";
 
-import { SectionHeader } from "../../components"
+import { SectionHeader } from "my-app/components"
 import { ActiveSubsection } from "./components/ActiveSubsection";
 import { InactiveSubsection } from "./components/InactiveSubsection";
 

@@ -1,5 +1,5 @@
-import { Button, FormLabel, TextField , FormControl, Autocomplete} from "@mui/material"
-import { presetLorry, presetDriver } from "../../../components/presetData"
+import { Button, FormLabel, TextField, FormControl, Autocomplete } from "@mui/material"
+import { presetLorry, presetDriver } from "my-app/components/presetData"
 import { useState } from "react";
 
 interface ActiveSubsectionProps {
@@ -49,7 +49,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             a14c: 0,
             a14cTong: 0,
             c50: 0,
-            c50Tong:0,
+            c50Tong: 0,
             receiptNumber: "",
             account: "",
             notes: "",
@@ -99,7 +99,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                 case "a14cTong":
                     formDataObject.a14cTong = parseInt(value.toString());
                     break;
-                    
+
                 case "c50":
                     formDataObject.c50 = parseInt(value.toString());
                     break;
@@ -115,7 +115,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                 case "account":
                     formDataObject.account = value.toString();;
                     break;
-                
+
                 case "notes":
                     formDataObject.notes = value.toString();;
                     break;
@@ -135,49 +135,49 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <FormLabel>Essential Data</FormLabel>
                         <div className="flex gap-4 max-sm:flex-col">
                             <div>
-                                <TextField name="date" required={true} size="small" type="datetime-local" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="date" required={true} size="small" type="datetime-local" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                             <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
-                                        <Autocomplete
-                                            options={presetDriver}
-                                            renderInput={(params) => (
-                                                <TextField {...params} name="name" required label="Driver" size="small" />
-                                            )}
-                                            freeSolo //To allow you to input by yourself 
-                                        />
-                            </FormControl>  
+                                <Autocomplete
+                                    options={presetDriver}
+                                    renderInput={(params) => (
+                                        <TextField {...params} name="name" required label="Driver" size="small" />
+                                    )}
+                                    freeSolo //To allow you to input by yourself 
+                                />
+                            </FormControl>
 
                             <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
-                                        <Autocomplete
-                                            options={presetLorry}
-                                            renderInput={(params) => (
-                                                <TextField {...params} name="lorry" required label="Lorry" size="small" />
-                                            )}
-                                            freeSolo //To allow you to input by yourself 
-                                        />
-                            </FormControl>   
-                            <TextField name="c14" size="small" label="C14" required={true} type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                            <TextField name="receiptNumber" size="small" label="Receipt No." required={true} className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>                   
+                                <Autocomplete
+                                    options={presetLorry}
+                                    renderInput={(params) => (
+                                        <TextField {...params} name="lorry" required label="Lorry" size="small" />
+                                    )}
+                                    freeSolo //To allow you to input by yourself 
+                                />
+                            </FormControl>
+                            <TextField name="c14" size="small" label="C14" required={true} type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                            <TextField name="receiptNumber" size="small" label="Receipt No." required={true} className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                         </div>
                     </div>
-                    
+
                     {showNonEssential && (
                         <div className="flex flex-col gap-2">
                             <FormLabel>Non-essential Data</FormLabel>
                             <div className="flex gap-4 max-sm:flex-col">
-                                <TextField name="c12" size="small" label="C12" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="c12" size="small" label="C12" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                             <div className="flex gap-4 mt-1 max-sm:flex-col">
-                                <TextField name="a14c" size="small" label="14c" type="number" className=" w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="a14cTong" size="small" label="14cTong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="c50" size="small" label="C50" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="a14c" size="small" label="14c" type="number" className=" w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="a14cTong" size="small" label="14cTong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="c50" size="small" label="C50" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                             <div className="flex gap-4 mt-1 max-sm:flex-col">
-                                <TextField name="account" size="small" label="Account"  className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="notes" size="small" label="Notes"  className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="account" size="small" label="Account" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="notes" size="small" label="Notes" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                         </div>
                     )}

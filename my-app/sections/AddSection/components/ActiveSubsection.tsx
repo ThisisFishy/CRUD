@@ -1,5 +1,5 @@
-import { Button, FormLabel, TextField, FormControl, Autocomplete} from "@mui/material"
-import { presetNames, presetLorry } from "../../../components/presetData"
+import { Button, FormLabel, TextField, FormControl, Autocomplete } from "@mui/material"
+import { presetNames, presetLorry } from "my-app/components/presetData" // Look at tsconfig.json, in the "paths". Uses absolute imports so no need long relative imports like ../../../
 import { useState } from "react";
 
 interface ActiveSubsectionProps {
@@ -53,7 +53,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             a14c: 0,
             a14cTong: 0,
             c50: 0,
-            c50Tong:0,
+            c50Tong: 0,
             gasPayment: 0,
             hutang: 0,
             tongPayment: 0,
@@ -107,7 +107,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                 case "a14cTong":
                     formDataObject.a14cTong = parseInt(value.toString());
                     break;
-                    
+
                 case "c50":
                     formDataObject.c50 = parseInt(value.toString());
                     break;
@@ -123,7 +123,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                 case "hutang":
                     formDataObject.hutang = parseInt(value.toString());
                     break;
-                
+
                 case "tongPayment":
                     formDataObject.tongPayment = parseInt(value.toString());
                     break;
@@ -138,7 +138,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
 
                 case "pulangTong":
                     formDataObject.pulangTong = parseInt(value.toString());
-                    break;    
+                    break;
 
                 // case "totalCashCollection":
                 //     formDataObject.totalCashCollection = parseInt(value.toString())
@@ -158,7 +158,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <FormLabel>Essential Data</FormLabel>
                         <div className="flex flex-col gap-4 max-sm:flex-col">
                             <div className="flex flex-row gap-4 max-sm:flex-col">
-                                <TextField name="date" required={true} size="small" type="datetime-local" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="date" required={true} size="small" type="datetime-local" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
 
                                 <div>
                                     <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
@@ -182,20 +182,20 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                                         />
                                     </FormControl>
 
-                                    
+
                                 </div>
                             </div>
                             <div className="flex gap-4 mt-6 max-sm:flex-col">
-                                <TextField name="gasPayment" required={true} size="small" label="Gas Payment" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="hutang" required={true} size="small" label="Hutang" type="number" className=" w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="tongPayment" required={true} size="small" label="Tong Payment" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="bayarHutang" required={true} size="small" label="Bayar Hutang" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="gasPayment" required={true} size="small" label="Gas Payment" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="hutang" required={true} size="small" label="Hutang" type="number" className=" w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="tongPayment" required={true} size="small" label="Tong Payment" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="bayarHutang" required={true} size="small" label="Bayar Hutang" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                             <div className="flex gap-4 mt-1 max-sm:flex-col">
-                                <TextField name="pinjamTong" required={true} size="small" label="Pinjam Tong" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full "/>
-                                <TextField name="pulangTong" required={true} size="small" label="Pulang Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="pinjamTong" required={true} size="small" label="Pinjam Tong" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full " />
+                                <TextField name="pulangTong" required={true} size="small" label="Pulang Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
-                            <TextField name="c14" size="small" required={true} label="C14" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                            <TextField name="c14" size="small" required={true} label="C14" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
                         </div>
                     </div>
 
@@ -203,15 +203,15 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <div className="flex flex-col gap-2">
                             <FormLabel>Non-essential Data</FormLabel>
                             <div className="flex gap-4 max-sm:flex-col">
-                                <TextField name="c12" size="small" label="C12" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="c12" size="small" label="C12" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                             <div className="flex gap-4 mt-1 max-sm:flex-col">
-                                <TextField name="a14c" size="small" label="14c" type="number" className=" w-60 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="a14cTong" size="small" label="14cTong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="c50" size="small" label="C50" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
-                                <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full"/>
+                                <TextField name="a14c" size="small" label="14c" type="number" className=" w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="a14cTong" size="small" label="14cTong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="c50" size="small" label="C50" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                         </div>
                     )}
