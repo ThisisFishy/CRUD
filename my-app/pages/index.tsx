@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { initialSalesRows, initialPurchaseRows } from "my-app/components/Dataforexample"; //generate some random data
 import netlifyIdentity from 'netlify-identity-widget';
 import { User } from 'netlify-identity-widget';
+import { LogIn } from "my-app/components/logIn";
 
 // Set dark theme by default
 // Reference: https://mui.com/material-ui/customization/dark-mode/
@@ -36,31 +37,23 @@ function Main() {
     setShowPurchasePage(!showPurchasePage);
   };
 
+  const handleLogout = () => {
+    netlifyIdentity.logout();
+  };
+
   useEffect(() => {
     // Initialize Netlify Identity
     netlifyIdentity.init();
 
     // Event listener for user change
     netlifyIdentity.on('login', (user: User) => {
-      setUser(user);
+        setUser(user);
     });
     
     netlifyIdentity.on('logout', () => {
-      setUser(null);
+        setUser(null);
     });
-
-    // Open login modal on initial load
-    // netlifyIdentity.open();
   }, []);
-
-  const handleLogin = () => {
-    netlifyIdentity.close();
-    netlifyIdentity.open();
-  };
-
-  const handleLogout = () => {
-    netlifyIdentity.logout();
-  };
 
   return (
     <div>
@@ -70,15 +63,17 @@ function Main() {
             <img className="w-70 h-28 max-sm:w-70 max-sm:h-24" src="/GloryGas_title.png" />
           </header>
           <div className="flex justify-center">
-            <button onClick={handleTogglePage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-sm">
+            <button onClick={handleTogglePage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm">
                 {showPurchasePage ? "Go to Sales Page" : "Go to Purchase Page"}
             </button>
+
+            <button onClick={handleLogout} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm">Logout</button>
           </div>
 
           <main className="flex flex-col gap-4 m-5 mt-0">
             {!showPurchasePage && (
               <>
-                <div className="mt-4 text-3xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Sales Section</div>
+                <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Sales Section</div>
                 <div className="mt-2">
                   <AddSection salesSetRows={salesSetRows} />
                 </div>
@@ -94,7 +89,7 @@ function Main() {
                 <div className="mt-2">
                   <PurchaseAddSection purchaseSetRows={purchaseSetRows} />
                 </div>
-                <div className="mt-2">
+                <div className="mt-4">
                   <PurchaseAddedSection purchaseRows={purchaseRows} purchaseSetRows={purchaseSetRows} />
                 </div>
               </>
@@ -103,10 +98,7 @@ function Main() {
           </main>
         </>
       ) : (
-        <div>
-          <p>Please log in to access the website.</p>
-          <button onClick={handleLogin} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-sm">Login</button>
-        </div>
+        <LogIn />
       )}
     </div>
   );
