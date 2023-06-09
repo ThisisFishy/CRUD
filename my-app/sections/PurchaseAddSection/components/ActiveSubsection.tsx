@@ -1,6 +1,7 @@
 import { Button, FormLabel, TextField, FormControl, Autocomplete } from "@mui/material"
 import { presetLorry, presetDriver } from "my-app/components/presetData"
 import { useState } from "react";
+import axios from 'axios';
 
 interface ActiveSubsectionProps {
     OnDoneClicked: (formDataObject: FormDataObject) => void,
@@ -8,7 +9,7 @@ interface ActiveSubsectionProps {
 }
 
 export interface FormDataObject {
-    date: Date,
+    date: string,
     name: string,
     lorry: string,
     c12: number,
@@ -27,19 +28,18 @@ export interface FormDataObject {
 export const ActiveSubsection = (props: ActiveSubsectionProps) => {
     const [showNonEssential, setShowNonEssential] = useState(false);
     const toggleNonEssential = () => setShowNonEssential(!showNonEssential);
-    // Called when the submit button is clicked
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        // console.log("Submitted!");
 
-        // Prevents default behavior of closing the form
+    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        console.log("Submitted!");
+
+        const submitData = async () => {
+            await axios.post('/api/submitForPurchase', formDataObject);
+        };
+
         event.preventDefault();
-
-        // Get the raw data from the form
         const data = new FormData(event.currentTarget)
-
-        // Empty FormDataObject with default values
         const formDataObject: FormDataObject = {
-            date: new Date(),
+            date: "YYYY-MM-DD",
             name: "Default Name",
             lorry: "",
             c12: 0,
@@ -65,7 +65,8 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             // key is the same as the name prop in the TextField
             switch (key) {
                 case "date":
-                    formDataObject.date = new Date(value.toString());
+                    const date = new Date(value.toString());
+                    formDataObject.date = date.toISOString().split('T')[0];
                     break;
 
                 case "name":
@@ -124,6 +125,15 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
         });
 
         props.OnDoneClicked(formDataObject);
+
+        try {
+            // submit data to the API endpoint
+            const response = await axios.post('/api/submitForPurchase', formDataObject);
+            console.log(response.data);
+        } catch (error) {
+            // handle error
+            console.error("An error occurred while submitting the form: ", error);
+        }
     }
 
     return (

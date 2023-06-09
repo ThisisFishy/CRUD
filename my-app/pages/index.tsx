@@ -7,6 +7,7 @@ import netlifyIdentity from 'netlify-identity-widget';
 import { User } from 'netlify-identity-widget';
 import { LogIn } from "my-app/components/logIn";
 
+
 // Set dark theme by default
 // Reference: https://mui.com/material-ui/customization/dark-mode/
 const darkTheme = createTheme({

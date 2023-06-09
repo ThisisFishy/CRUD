@@ -1,6 +1,7 @@
 import { Button, FormLabel, TextField, FormControl, Autocomplete } from "@mui/material"
 import { presetNames, presetLorry } from "my-app/components/presetData" // Look at tsconfig.json, in the "paths". Uses absolute imports so no need long relative imports like ../../../
 import { useState } from "react";
+import axios from 'axios';
 
 interface ActiveSubsectionProps {
     OnDoneClicked: (formDataObject: FormDataObject) => void,
@@ -8,7 +9,7 @@ interface ActiveSubsectionProps {
 }
 
 export interface FormDataObject {
-    date: Date,
+    date: string,
     name: string,
     lorry: string,
     c12: number,
@@ -31,19 +32,18 @@ export interface FormDataObject {
 export const ActiveSubsection = (props: ActiveSubsectionProps) => {
     const [showNonEssential, setShowNonEssential] = useState(false);
     const toggleNonEssential = () => setShowNonEssential(!showNonEssential);
-    // Called when the submit button is clicked
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        // console.log("Submitted!");
 
-        // Prevents default behavior of closing the form
+    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        console.log("Submitted!");
+
+        const submitData = async () => {
+            await axios.post('/api/submitForSales', formDataObject);
+        };
+
         event.preventDefault();
-
-        // Get the raw data from the form
         const data = new FormData(event.currentTarget)
-
-        // Empty FormDataObject with default values
         const formDataObject: FormDataObject = {
-            date: new Date(),
+            date: "YYYY-MM-DD",
             name: "Default Name",
             lorry: "",
             c12: 0,
@@ -60,7 +60,6 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             bayarHutang: 0,
             pinjamTong: 0,
             pulangTong: 0,
-            // totalCashCollection: 0
         }
 
         // Extract the raw data and convert it into a FormDataObject
@@ -73,7 +72,8 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             // key is the same as the name prop in the TextField
             switch (key) {
                 case "date":
-                    formDataObject.date = new Date(value.toString());
+                    const date = new Date(value.toString());
+                    formDataObject.date = date.toISOString().split('T')[0];
                     break;
 
                 case "name":
@@ -139,14 +139,19 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                 case "pulangTong":
                     formDataObject.pulangTong = parseInt(value.toString());
                     break;
-
-                // case "totalCashCollection":
-                //     formDataObject.totalCashCollection = parseInt(value.toString())
-                //     break;
             }
         });
 
         props.OnDoneClicked(formDataObject);
+
+        try {
+            // submit data to the API endpoint
+            const response = await axios.post('/api/submitForSales', formDataObject);
+            console.log(response.data);
+        } catch (error) {
+            // handle error
+            console.error("An error occurred while submitting the form: ", error);
+        }
     }
 
     return (
@@ -158,7 +163,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <FormLabel>Essential Data</FormLabel>
                         <div className="flex flex-col gap-4 max-sm:flex-col">
                             <div className="flex flex-row gap-4 max-sm:flex-col">
-                                <TextField name="date" required={true} size="small" type="datetime-local" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="date" required={true} size="small" type="date" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
 
                                 <div>
                                     <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
