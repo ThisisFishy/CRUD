@@ -2,6 +2,8 @@ import { Button, FormLabel, TextField, FormControl, Autocomplete } from "@mui/ma
 import { presetLorry, presetDriver } from "my-app/components/presetData"
 import { useState } from "react";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface ActiveSubsectionProps {
     OnDoneClicked: (formDataObject: FormDataObject) => void,
@@ -30,11 +32,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
     const toggleNonEssential = () => setShowNonEssential(!showNonEssential);
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        console.log("Submitted!");
-
-        const submitData = async () => {
-            await axios.post('/api/submitForPurchase', formDataObject);
-        };
+        console.log("Submitted laaaa!");
 
         event.preventDefault();
         const data = new FormData(event.currentTarget)
@@ -130,8 +128,28 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             // submit data to the API endpoint
             const response = await axios.post('/api/submitForPurchase', formDataObject);
             console.log(response.data);
+            toast.success('Data Added!', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         } catch (error) {
             // handle error
+            toast.error('Data Transmission Failed!', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
             console.error("An error occurred while submitting the form: ", error);
         }
     }

@@ -6,7 +6,8 @@ import { initialSalesRows, initialPurchaseRows } from "my-app/components/Datafor
 import netlifyIdentity from 'netlify-identity-widget';
 import { User } from 'netlify-identity-widget';
 import { LogIn } from "my-app/components/logIn";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Set dark theme by default
 // Reference: https://mui.com/material-ui/customization/dark-mode/
@@ -113,6 +114,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Main />
+      <ToastContainer />
     </ThemeProvider>
   );
 }
