@@ -1,8 +1,9 @@
-import { AddSection, SalesAddedSection, PurchaseAddSection, PurchaseAddedSection } from "../sections"
+import { AddSection, SalesAddedSection, PurchaseAddSection, PurchaseAddedSection, SearchSection } from "../sections"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useState, useEffect } from "react";
 import { initialSalesRows, initialPurchaseRows } from "my-app/components/Dataforexample"; //generate some random data
+// import { SalesSummeryTable } from "my-app/components/SalesSummeryTable";
 import netlifyIdentity from 'netlify-identity-widget';
 import { User } from 'netlify-identity-widget';
 import { LogIn } from "my-app/components/logIn";
@@ -33,11 +34,16 @@ function Main() {
   const [salesRows, salesSetRows] = useState(initialSalesRows);
   const [purchaseRows, purchaseSetRows] = useState(initialPurchaseRows);
   const [showPurchasePage, setShowPurchasePage] = useState(false);
+  const [showSummeryPage, setShowSummeryPage] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
   const handleTogglePage = () => {
     setShowPurchasePage(!showPurchasePage);
   };
+
+  const handleSummeryPage = () => {
+    setShowSummeryPage(!showSummeryPage)
+  }
 
   const handleLogout = () => {
     netlifyIdentity.logout();
@@ -68,35 +74,49 @@ function Main() {
             <button onClick={handleTogglePage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm">
                 {showPurchasePage ? "Go to Sales Page" : "Go to Purchase Page"}
             </button>
-
+            <button onClick={handleSummeryPage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm">
+                {showSummeryPage ? "Go to Input Section" : "Go to Summery"}
+            </button>
             <button onClick={handleLogout} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm">Logout</button>
           </div>
 
           <main className="flex flex-col gap-4 m-5 mt-0">
-            {!showPurchasePage && (
+            {!showSummeryPage && (
               <>
-                <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Sales Section</div>
-                <div className="mt-2">
-                  <AddSection salesSetRows={salesSetRows} />
-                </div>
-                <div className="mt-4">
-                  <SalesAddedSection salesRows={salesRows} salesSetRows={salesSetRows} />
-                </div>
+                {!showPurchasePage && (
+                  <>
+                    <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Sales Section</div>
+                    <div className="mt-2">
+                      <AddSection salesSetRows={salesSetRows} />
+                    </div>
+                    <div className="mt-4">
+                      <SalesAddedSection salesRows={salesRows} salesSetRows={salesSetRows} />
+                    </div>
+                  </>
+                )}
+
+                {showPurchasePage && (
+                  <>
+                    <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Purchase Section</div>
+                    <div className="mt-2">
+                      <PurchaseAddSection purchaseSetRows={purchaseSetRows} />
+                    </div>
+                    <div className="mt-4">
+                      <PurchaseAddedSection purchaseRows={purchaseRows} purchaseSetRows={purchaseSetRows} />
+                    </div>
+                  </>
+                )}
               </>
             )}
 
-            {showPurchasePage && (
+            {showSummeryPage && (
               <>
-                <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Purchase Section</div>
+                <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Summery</div>
                 <div className="mt-2">
-                  <PurchaseAddSection purchaseSetRows={purchaseSetRows} />
-                </div>
-                <div className="mt-4">
-                  <PurchaseAddedSection purchaseRows={purchaseRows} purchaseSetRows={purchaseSetRows} />
+                  {/* <SalesSummeryTable salesRows={salesRows} salesSetRows={salesSetRows} isEditable={true} /> */}
                 </div>
               </>
             )}
-
           </main>
         </>
       ) : (
