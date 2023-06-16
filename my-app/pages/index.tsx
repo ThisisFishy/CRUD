@@ -1,4 +1,9 @@
 import { AddSection, SalesAddedSection, PurchaseAddSection, PurchaseAddedSection, SearchSection } from "../sections"
+import { SalesFilterSection } from "my-app/sections/SalesFilterSection/SalesFilterSection";
+import { GridValidRowModel } from "@mui/x-data-grid"; // replace with the actual path
+import { fetchSalesData } from "./api/api";
+
+
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useState, useEffect } from "react";
@@ -9,6 +14,7 @@ import { User } from 'netlify-identity-widget';
 import { LogIn } from "my-app/components/logIn";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { SalesFetchedSection } from "my-app/sections/SalesFetchedSection";
 
 // Set dark theme by default
 // Reference: https://mui.com/material-ui/customization/dark-mode/
@@ -36,6 +42,7 @@ function Main() {
   const [showPurchasePage, setShowPurchasePage] = useState(false);
   const [showSummeryPage, setShowSummeryPage] = useState(false);
   const [user, setUser] = useState<User | null>(null);
+  const [salesFetchedRows, setSalesFetchedRows] = useState<GridValidRowModel[]>([]);
 
   const handleTogglePage = () => {
     setShowPurchasePage(!showPurchasePage);
@@ -113,10 +120,17 @@ function Main() {
               <>
                 <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Summery</div>
                 <div className="mt-2">
-                  {/* <SalesSummeryTable salesRows={salesRows} salesSetRows={salesSetRows} isEditable={true} /> */}
+                <SalesFilterSection onFilterApplied={(filterData) => {
+                  // Replace this placeholder function with actual fetch call
+                  fetchSalesData(filterData).then((fetchedData) => setSalesFetchedRows(fetchedData));
+                }} />
+                </div>
+                <div className="mt-4">
+                      <SalesFetchedSection salesRows={salesFetchedRows}/>
                 </div>
               </>
             )}
+
           </main>
         </>
       ) : (
