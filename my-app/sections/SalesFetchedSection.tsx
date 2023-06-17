@@ -12,17 +12,22 @@ export const SalesFetchedSection = (props: SalesFetchedSectionProps) => {
   const [rows, setRows] = useState<GridRowsProp>([]);
 
   useEffect(() => {
-    console.log(salesRows);
-    // Transform the data to be a flat array of objects
-    const transformedData = salesRows.map((row: any) => {
-      const transformedRow = { id: row.id, ...row.data };
-      return transformedRow;
-    });
+    const fetchData = async () => {
+      // Fetch data from server
+      const res = await fetch('http://localhost:3000/api/fetchSalesData'); // Replace with your API endpoint
+      const data = await res.json(); // Parse the JSON data from the response
   
-    console.log(transformedData);  // Add this line
+      console.log(data); // Log the data to the console
   
-    setRows(transformedData);
-  }, [salesRows]);
+      // Save the data into state
+      setRows(data);
+    };
+  
+    fetchData();
+  }, []);
+  
+  
+  
   
   return (
     <section>

@@ -14,11 +14,9 @@ export const fetchSalesData = async (filterData: FilterData): Promise<GridValidR
 
         // Log the response
         const data: GridValidRowModel[] = await response.json();
+
         console.log('Response:', response);
 
-        // Log the status code and status text
-        console.error('Error status code:', response.status);
-        console.error('Error status text:', response.statusText);
       
         // Throw an error if the response is not ok
         if (!response.ok) {
@@ -26,11 +24,12 @@ export const fetchSalesData = async (filterData: FilterData): Promise<GridValidR
             console.error('Error status code:', response.status);
             console.error('Error status text:', response.statusText);
             throw new Error('Network response was not ok');
-        }
-      
+        }        
+    
 
         // Process the response
-        return data;
+        return data.map((row: GridValidRowModel) => ({ id: row.id, ...row.data }));
+
 
     } catch (error) {
         console.error('Fetch failed:', error);

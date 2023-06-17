@@ -11,7 +11,18 @@ interface RowData {
     lorry: string;
     c12: string; // Or whatever type these are
     c12Tong: string; // Or whatever type these are
-    //... and all other fields
+    c14: string;
+    c14Tong: string;
+    a14c: string;
+    a14cTong: string;
+    c50: string;
+    c50Tong: string;
+    gasPayment: string;
+    hutang: string;
+    tongPayment: string;
+    bayarHutang: string;
+    pinjamTong: string;
+    pulangTong: string;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -32,7 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Fetch all rows
       const { data } = await sheets.spreadsheets.values.get({
         spreadsheetId: '1Ql3bTvFLXkzRTHTVCcRoIQE0VVsO7HIjEjx7iegQN2E',
-        range: 'Sheet1', // Adjust depending on your sheet structure
+        range: 'Sheet1!A2:Q', // Adjust depending on your sheet structure
       });
 
       const rows = data.values || [];
@@ -42,6 +53,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const rowDate = new Date(row[0]);
         const rowName = row[1];
         const rowLorry = row[2];
+        const rowC12= row[3];
+        const rowC12Tong= row[4];
+        const rowC14= row[5];
+        const rowC14Tong= row[6];
+        const rowA14C= row[7];
+        const rowA14CTong= row[8];
+        const rowC50= row[9];
+        const rowC50Tong= row[10];
+        const rowGasPayment= row[11];
+        const rowHutang= row[12];
+        const rowTongPayment= row[13];
+        const rowBayarPayment= row[14];
+        const rowPinjamTong = row[15];
+        const rowPulangTong = row[16];
 
         // Filter based on query parameters
         if (
@@ -56,8 +81,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             date: rowDate,
             name: rowName,
             lorry: rowLorry,
-            c12: row[3],
-            c12Tong: row[4],
+            c12: rowC12,
+            c12Tong: rowC12Tong,
+            c14: rowC14,
+            c14Tong: rowC14Tong,
+            a14c: rowA14C,
+            a14cTong: rowA14CTong,
+            c50: rowC50,
+            c50Tong: rowC50Tong,
+            gasPayment: rowGasPayment,
+            hutang: rowHutang,
+            tongPayment: rowTongPayment,
+            bayarHutang: rowBayarPayment,
+            pinjamTong: rowPinjamTong,
+            pulangTong: rowPulangTong,
+
+
             //... and all other fields
           };
         }
