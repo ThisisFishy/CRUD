@@ -14,7 +14,7 @@ export const SalesFetchedSection = (props: SalesFetchedSectionProps) => {
   useEffect(() => {
     const fetchData = async () => {
       // Fetch data from server
-      const res = await fetch('http://localhost:3000/api/fetchSalesData'); // Replace with your API endpoint
+      const res = await fetch('https://glorygas.netlify.app/api/fetchSalesData'); // Replace with your API endpoint
       const data = await res.json(); // Parse the JSON data from the response
   
       console.log(data); // Log the data to the console

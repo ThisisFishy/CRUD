@@ -3,12 +3,10 @@ import { SalesFilterSection } from "my-app/sections/SalesFilterSection/SalesFilt
 import { GridValidRowModel } from "@mui/x-data-grid"; // replace with the actual path
 import { fetchSalesData } from "./api/api";
 
-
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useState, useEffect } from "react";
 import { initialSalesRows, initialPurchaseRows } from "my-app/components/Dataforexample"; //generate some random data
-// import { SalesSummeryTable } from "my-app/components/SalesSummeryTable";
 import netlifyIdentity from 'netlify-identity-widget';
 import { User } from 'netlify-identity-widget';
 import { LogIn } from "my-app/components/logIn";
