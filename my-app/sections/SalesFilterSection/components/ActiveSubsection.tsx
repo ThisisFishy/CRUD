@@ -1,46 +1,50 @@
-import { Button, TextField, Autocomplete, FormControl } from "@mui/material"
+import { Button, TextField, Autocomplete, FormControl } from "@mui/material";
 import { useState } from "react";
+import { GridValidRowModel } from "@mui/x-data-grid";
+import { fetchSalesData } from "my-app/pages/api/api";
 
 interface FilterSectionProps {
-    onFilterApplied: (filterData: FilterData) => void,
+    onFilterApplied: (newSalesData: GridValidRowModel[]) => void,
     onCancelClicked: () => void
 }
 
 export interface FilterData {
-    dateFrom?: string,
-    dateTo?: string,
-    name?: string,
-    lorry?: string,
+    field?: string,
+    condition?: string,
+    value?: string,
+    secondValue?: string
 }
 
-const fields = ['Date', 'Name', 'Lorry']; // These are just sample fields
-const conditions = ['equals', 'not equals', 'greater than', 'less than', 'greater or equal to', 'smaller or equal to'];
+const fields = ['Date', 'Name', 'Lorry'];
+const conditions = ['equals', 'not equals', 'between', 'greater than', 'less than', 'greater or equal to', 'smaller or equal to'];
 
 export const FilterSection = (props: FilterSectionProps) => {
-
-    const [dateFrom, setDateFrom] = useState<string>("");
-    const [dateTo, setDateTo] = useState<string>("");
-    const [name, setName] = useState<string>("");
-    const [lorry, setLorry] = useState<string>("");
-
-
-    const [field, setField] = useState<string | null>(null);
-    const [condition, setCondition] = useState<string | null>(null);
+    const [field, setField] = useState<string | undefined>();
+    const [condition, setCondition] = useState<string | undefined>();
     const [value, setValue] = useState<string>("");
-    
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const [secondValue, setSecondValue] = useState<string>("");
+
+    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        event.stopPropagation();
+
+        // if (!field || !condition || !value) {
+        //     // Handle input validation error
+        //     return;
+        // }
 
         const filterData: FilterData = {
-            dateFrom,
-            dateTo,
-            name,
-            lorry
+            field,
+            condition,
+            value,
+            secondValue: condition === 'between' ? secondValue : undefined
         }
 
-        props.onFilterApplied(filterData);
+        console.log(filterData);  // This will print the filterData object to the console
+        console.log('傻西');
+        const newSalesData = await fetchSalesData(filterData);
+        props.onFilterApplied(newSalesData);
     }
-    
 
     return (
         <div className="flex flex-col gap-4 max-sm:justify-center max-sm:ml-0">
@@ -77,6 +81,19 @@ export const FilterSection = (props: FilterSectionProps) => {
                                 setValue(event.target.value);
                             }}
                         />
+
+                        {condition === 'between' && (
+                            <TextField  
+                                name="secondValue" 
+                                required={true} 
+                                size="small" 
+                                label="Second Value" 
+                                className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full"
+                                onChange={(event) => {
+                                    setSecondValue(event.target.value);
+                                }}
+                            />
+                        )}
                     </div>
 
                     <div className="flex gap-4 mt-2 mb-4 max-sm:flex-col max-sm:mb-0">

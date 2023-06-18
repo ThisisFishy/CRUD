@@ -1,16 +1,15 @@
-// pages/api/fetchSalesData.ts
 import { google } from 'googleapis';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const creds = require('../../webnext-388317-a94d4d8e4e94.json'); // replace with your path
+const creds = require('../../webnext-388317-a94d4d8e4e94.json');
 
 interface RowData {
     id: number;
     date: Date;
     name: string;
     lorry: string;
-    c12: string; // Or whatever type these are
-    c12Tong: string; // Or whatever type these are
+    c12: string;
+    c12Tong: string;
     c14: string;
     c14Tong: string;
     a14c: string;
@@ -28,7 +27,9 @@ interface RowData {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     try {
-      const { dateFrom, dateTo, name, lorry } = req.query;
+      console.log('點解呀');
+      const { field, condition, value, secondValue } = req.query;
+      console.log(JSON.stringify(req.query) + '1234567890');
 
       // Authenticate with Google Sheets API
       const client = new google.auth.JWT({
@@ -47,6 +48,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       const rows = data.values || [];
+
+
+      // if (!field || !condition || !value) {
+      //   console.error('Missing required query parameter:', { field, condition, value });
+      //   res.status(400).json({ error: 'Missing required query parameter' });
+      //   return;
+      // }
 
       // Filter and format the data
       let filteredRows = rows.map((row: any[], index: number) => {
@@ -68,13 +76,39 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const rowPinjamTong = row[15];
         const rowPulangTong = row[16];
 
+
+        let shouldIncludeRow = false;
+
+        switch (field) {
+          case 'Date':
+            const rowDate = new Date(row[0]);
+            shouldIncludeRow = true;
+            // if (condition === 'equals' && rowDate.getTime() === new Date(value as string).getTime()) {
+            //   shouldIncludeRow = true;
+            // } else if (condition === 'between' && rowDate.getTime() >= new Date(value as string).getTime() && rowDate.getTime() <= new Date(secondValue as string).getTime()) {
+            //   shouldIncludeRow = true;
+            // }else {shouldIncludeRow = true;}
+            break;
+          case 'Name':
+            // if (condition === 'equals' && row[1] === value) {
+            //   shouldIncludeRow = true;
+            // }else {shouldIncludeRow = true;}
+            shouldIncludeRow = true;
+            break;
+          case 'Lorry':
+            // if (condition === 'equals' && row[2] === value) {
+            //   shouldIncludeRow = true;
+            // } else {shouldIncludeRow = true;}
+            shouldIncludeRow = true;
+            break;
+          default:
+            shouldIncludeRow = false;
+            console.error('Unexpected field:', field, 'typeof field:', typeof field);
+            break;
+        }
+
         // Filter based on query parameters
-        if (
-          (!dateFrom || rowDate >= new Date(dateFrom as string)) && 
-          (!dateTo || rowDate <= new Date(dateTo as string)) &&
-          (!name || rowName === name) &&
-          (!lorry || rowLorry === lorry)
-        ) {
+        if (shouldIncludeRow) {
           // Format the row into the format that the DataGrid expects
           return {
             id: index, // add an id field here
@@ -106,11 +140,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (filteredRows.length > 0) {
         res.status(200).json(filteredRows);
       } else {
-        res.status(404).json({ error: 'No data found' });
+        res.status(200).json([]);
       }
     } catch (error) {
       console.error('Fetch failed:', error);
       res.status(500).json({ error: 'Fetch failed' });
+      
     }
   } else {
     res.status(405).json({ error: 'Method Not Allowed' });

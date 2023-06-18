@@ -57,7 +57,6 @@ function Main() {
   useEffect(() => {
     // Initialize Netlify Identity
     netlifyIdentity.init();
-
     // Event listener for user change
     netlifyIdentity.on('login', (user: User) => {
         setUser(user);
