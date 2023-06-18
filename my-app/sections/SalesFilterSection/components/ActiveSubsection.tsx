@@ -14,7 +14,7 @@ export interface FilterData {
 }
 
 const fields = ['Date', 'Name', 'Lorry']; // These are just sample fields
-const conditions = ['equals', 'not equals', 'greater than', 'less than'];
+const conditions = ['equals', 'not equals', 'greater than', 'less than', 'greater or equal to', 'smaller or equal to'];
 
 export const FilterSection = (props: FilterSectionProps) => {
 
