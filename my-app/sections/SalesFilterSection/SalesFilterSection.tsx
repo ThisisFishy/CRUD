@@ -1,11 +1,11 @@
 import { useState } from "react";
-
+import { GridValidRowModel } from "@mui/x-data-grid";
 import { FilterData, FilterSection } from "./components/ActiveSubsection";
 import { SectionHeader } from "my-app/components"
 import { InactiveSubsection } from "./components/InactiveSubsection";
 
 interface SalesFilterSectionProps {
-    onFilterApplied: (filterData: FilterData) => void;
+    onFilterApplied: (newSalesData: GridValidRowModel[]) => void;
 }
 
 export const SalesFilterSection = (props: SalesFilterSectionProps) => {
@@ -18,10 +18,7 @@ export const SalesFilterSection = (props: SalesFilterSectionProps) => {
             {isActive ?
                 <FilterSection
                     onFilterApplied={(filterData) => {
-                        // Pass the filter data to the parent component
                         props.onFilterApplied(filterData);
-
-                        // Deactivate the filter form
                         setIsActive(false);
                     }}
                     onCancelClicked={() => setIsActive(false)}

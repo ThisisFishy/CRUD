@@ -2,6 +2,7 @@ import { AddSection, SalesAddedSection, PurchaseAddSection, PurchaseAddedSection
 import { SalesFilterSection } from "my-app/sections/SalesFilterSection/SalesFilterSection";
 import { GridValidRowModel } from "@mui/x-data-grid"; // replace with the actual path
 import { fetchSalesData } from "./api/api";
+import { FilterData } from "my-app/sections/SalesFilterSection/components/ActiveSubsection";
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -117,11 +118,12 @@ function Main() {
               <>
                 <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Summery</div>
                 <div className="mt-2">
-                <SalesFilterSection onFilterApplied={(filterData) => {
-                  // Replace this placeholder function with actual fetch call
-                  fetchSalesData(filterData).then((fetchedData) => setSalesFetchedRows(fetchedData));
+                <SalesFilterSection onFilterApplied={(newSalesData: GridValidRowModel[]) => {
+                    console.log('Fetched sales data:', newSalesData);
+                    setSalesFetchedRows(newSalesData);
                 }} />
                 </div>
+
                 <div className="mt-4">
                       <SalesFetchedSection salesRows={salesFetchedRows}/>
                 </div>

@@ -27,9 +27,9 @@ interface RowData {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     try {
-      console.log('點解呀');
+      console.log('this is fetchSalesData.ts');
       const { field, condition, value, secondValue } = req.query;
-      console.log(JSON.stringify(req.query) + '1234567890');
+      console.log(JSON.stringify(req.query));
 
       // Authenticate with Google Sheets API
       const client = new google.auth.JWT({
@@ -50,11 +50,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const rows = data.values || [];
 
 
-      // if (!field || !condition || !value) {
-      //   console.error('Missing required query parameter:', { field, condition, value });
-      //   res.status(400).json({ error: 'Missing required query parameter' });
-      //   return;
-      // }
+      if (!field || !condition || !value) {
+        console.error('Missing required query parameter:', { field, condition, value });
+        res.status(400).json({ error: 'Missing required query parameter' });
+        return;
+      }
 
       // Filter and format the data
       let filteredRows = rows.map((row: any[], index: number) => {
@@ -83,23 +83,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           case 'Date':
             const rowDate = new Date(row[0]);
             shouldIncludeRow = true;
-            // if (condition === 'equals' && rowDate.getTime() === new Date(value as string).getTime()) {
-            //   shouldIncludeRow = true;
-            // } else if (condition === 'between' && rowDate.getTime() >= new Date(value as string).getTime() && rowDate.getTime() <= new Date(secondValue as string).getTime()) {
-            //   shouldIncludeRow = true;
-            // }else {shouldIncludeRow = true;}
+            if (condition === 'equals' && rowDate.getTime() === new Date(value as string).getTime()) {
+              shouldIncludeRow = true;
+            } else if (condition === 'between' && rowDate.getTime() >= new Date(value as string).getTime() && rowDate.getTime() <= new Date(secondValue as string).getTime()) {
+              shouldIncludeRow = true;
+            }
             break;
           case 'Name':
-            // if (condition === 'equals' && row[1] === value) {
-            //   shouldIncludeRow = true;
-            // }else {shouldIncludeRow = true;}
-            shouldIncludeRow = true;
+            if (condition === 'equals' && row[1] === value) {
+              shouldIncludeRow = true;
+            }
             break;
           case 'Lorry':
-            // if (condition === 'equals' && row[2] === value) {
-            //   shouldIncludeRow = true;
-            // } else {shouldIncludeRow = true;}
-            shouldIncludeRow = true;
+            if (condition === 'equals' && row[2] === value) {
+              shouldIncludeRow = true;
+            }
+            if (condition === 'less than' && row[2] < value){
+              shouldIncludeRow = true;
+            }
             break;
           default:
             shouldIncludeRow = false;
@@ -111,7 +112,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (shouldIncludeRow) {
           // Format the row into the format that the DataGrid expects
           return {
-            id: index, // add an id field here
+            id: index,
             date: rowDate,
             name: rowName,
             lorry: rowLorry,
@@ -129,9 +130,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             bayarHutang: rowBayarPayment,
             pinjamTong: rowPinjamTong,
             pulangTong: rowPulangTong,
-
-
-            //... and all other fields
           };
         }
         }).filter((row: RowData | undefined): row is RowData => row !== undefined);

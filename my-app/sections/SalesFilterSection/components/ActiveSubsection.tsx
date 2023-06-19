@@ -40,8 +40,8 @@ export const FilterSection = (props: FilterSectionProps) => {
             secondValue: condition === 'between' ? secondValue : undefined
         }
 
-        console.log(filterData);  // This will print the filterData object to the console
-        console.log('傻西');
+        console.log(filterData);
+        console.log('This is ActiveSubsection');
         const newSalesData = await fetchSalesData(filterData);
         props.onFilterApplied(newSalesData);
     }

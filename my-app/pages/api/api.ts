@@ -1,5 +1,5 @@
-import { GridValidRowModel } from '@mui/x-data-grid'; // replace with the actual path
-import { FilterData } from 'my-app/sections/SalesFilterSection/components/ActiveSubsection'; // replace with the actual path
+import { GridValidRowModel } from '@mui/x-data-grid';
+import { FilterData } from 'my-app/sections/SalesFilterSection/components/ActiveSubsection';
 
 export const fetchSalesData = async (filterData: FilterData): Promise<GridValidRowModel[]> => {
     const definedFilterData = Object.fromEntries(
@@ -13,8 +13,12 @@ export const fetchSalesData = async (filterData: FilterData): Promise<GridValidR
         const response = await fetch(`/api/fetchSalesData?field=${encodeURIComponent(filterData.field || "")}&condition=${encodeURIComponent(filterData.condition || "")}&value=${encodeURIComponent(filterData.value || "")}&secondValue=${encodeURIComponent(filterData.secondValue || "")}`, {
             method: 'GET',
         });
-        console.log('呢到呀');
-        console.log('mud9');
+
+        // const response = await fetch(`/api/fetchSalesData?${params.toString()}`, {
+        //     method: 'GET',
+        // });
+
+        console.log('This is api.ts');
 
         // Throw an error if the response is not ok
         if (!response.ok) {
