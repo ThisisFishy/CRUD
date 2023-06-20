@@ -201,6 +201,39 @@ export const SalesSummeryTable = (props: DataTableProps) => {
                 return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
             }
         },
+
+        // {
+        //     field: "pulangTong",
+        //     headerName: "Pulang Tong",
+        //     type: "number",
+        //     width:110,
+        //     editable: false,
+        //     renderHeader: (params) => {
+        //         return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+        //     }
+        // },
+
+        {
+            field: "totalTong",
+            headerName: "Total Tong",
+            type: "number",
+            width:120,
+            editable: false,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
+        },
+
+        {
+            field: "totalCashCollection",
+            headerName: "TotalCashCollection",
+            type: "number",
+            width:160,
+            editable: false,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
+        },
         // add more column definitions here
     ];
 

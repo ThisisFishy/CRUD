@@ -1,5 +1,5 @@
 import { Button, FormLabel, TextField, FormControl, Autocomplete } from "@mui/material"
-import { presetNames, presetLorry } from "my-app/components/presetData" // Look at tsconfig.json, in the "paths". Uses absolute imports so no need long relative imports like ../../../
+import { presetNames, presetLorry } from "my-app/components/presetData"
 import { useState } from "react";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -148,7 +148,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             console.log(response.data);
             toast.success('Data Added!', {
                 position: "bottom-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
@@ -160,7 +160,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             // handle error
             toast.error('Data Transmission Failed!', {
                 position: "bottom-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
@@ -209,7 +209,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                                 </div>
                             </div>
                             <div className="flex gap-4 mt-6 max-sm:flex-col">
-                                <TextField name="gasPayment" required={true} size="small" label="Gas Payment" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="c14" size="small" required={true} label="C14" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
                                 <TextField name="hutang" required={true} size="small" label="Hutang" type="number" className=" w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                                 <TextField name="tongPayment" required={true} size="small" label="Tong Payment" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                                 <TextField name="bayarHutang" required={true} size="small" label="Bayar Hutang" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
@@ -218,7 +218,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                                 <TextField name="pinjamTong" required={true} size="small" label="Pinjam Tong" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full " />
                                 <TextField name="pulangTong" required={true} size="small" label="Pulang Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
-                            <TextField name="c14" size="small" required={true} label="C14" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                            <TextField name="gasPayment" required={true} size="small" label="Gas Payment" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
                         </div>
                     </div>
 

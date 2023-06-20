@@ -163,7 +163,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                         <FormLabel>Essential Data</FormLabel>
                         <div className="flex gap-4 max-sm:flex-col">
                             <div>
-                                <TextField name="date" required={true} size="small" type="datetime-local" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="date" required={true} size="small" type="date" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                             <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
                                 <Autocomplete

@@ -22,6 +22,8 @@ interface RowData {
     bayarHutang: string;
     pinjamTong: string;
     pulangTong: string;
+    totalTong: string;
+    totalCashCollection: string;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -44,7 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Fetch all rows
       const { data } = await sheets.spreadsheets.values.get({
         spreadsheetId: '1Ql3bTvFLXkzRTHTVCcRoIQE0VVsO7HIjEjx7iegQN2E',
-        range: 'Sheet1!A2:Q', // Adjust depending on your sheet structure
+        range: 'Sheet1!A2:S', // Adjust depending on your sheet structure
       });
 
       const rows = data.values || [];
@@ -75,33 +77,69 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const rowBayarPayment= row[14];
         const rowPinjamTong = row[15];
         const rowPulangTong = row[16];
-
+        const rowTotalTong = row[17];
+        const rowTotalCashCollection = row[18];
 
         let shouldIncludeRow = false;
-
+        const queryDate = new Date(new Date(value as string).setHours(0, 0, 0, 0));
+        const rowDateWithoutTime = new Date(rowDate.setHours(0, 0, 0, 0));
         switch (field) {
           case 'Date':
-            const rowDate = new Date(row[0]);
-            shouldIncludeRow = true;
-            if (condition === 'equals' && rowDate.getTime() === new Date(value as string).getTime()) {
-              shouldIncludeRow = true;
-            } else if (condition === 'between' && rowDate.getTime() >= new Date(value as string).getTime() && rowDate.getTime() <= new Date(secondValue as string).getTime()) {
+            // shouldIncludeRow = false; // Assume it shouldn't be included by default
+            if (condition === 'equals' && rowDateWithoutTime.getTime() === queryDate.getTime()) {
+                shouldIncludeRow = true;
+            } 
+            else if(condition === 'not equals' && rowDateWithoutTime.getTime() !== queryDate.getTime()){
               shouldIncludeRow = true;
             }
-            break;
+            else if(condition === 'greater than' && rowDateWithoutTime.getTime() > queryDate.getTime()){
+              shouldIncludeRow = true;
+            }
+            else if(condition === 'less than' && rowDateWithoutTime.getTime() < queryDate.getTime()){
+              shouldIncludeRow = true;
+            }
+            else if(condition === 'greater or equal to' && rowDateWithoutTime.getTime() >= queryDate.getTime()){
+              shouldIncludeRow = true;
+            }
+            else if(condition === 'smaller or equal to' && rowDateWithoutTime.getTime() <= queryDate.getTime()){
+              shouldIncludeRow = true;
+            }
+            else if (condition === 'between') {
+                const start = new Date(value as string).setHours(0, 0, 0, 0);
+                const end = new Date(secondValue as string).setHours(23, 59, 59, 999);
+                if(rowDate.getTime() >= start && rowDate.getTime() <= end) {
+                    shouldIncludeRow = true;
+                }
+            }
+          break;
+
           case 'Name':
             if (condition === 'equals' && row[1] === value) {
               shouldIncludeRow = true;
+            }
+            if (condition === 'not equals' && row[1] !== value) {
+              shouldIncludeRow = true;
+            }        
+            if (condition === 'contain') {
+              if (typeof value === 'string' && row[1].toLowerCase().includes(value.toLowerCase())) {
+                shouldIncludeRow = true;
+              }
             }
             break;
           case 'Lorry':
             if (condition === 'equals' && row[2] === value) {
               shouldIncludeRow = true;
             }
-            if (condition === 'less than' && row[2] < value){
+            if (condition === 'not equals' && row[2] !== value) {
               shouldIncludeRow = true;
             }
+            if (condition === 'contain') {
+              if (typeof value === 'string' && row[2].toLowerCase().includes(value.toLowerCase())) {
+                shouldIncludeRow = true;
+              }
+            }
             break;
+
           default:
             shouldIncludeRow = false;
             console.error('Unexpected field:', field, 'typeof field:', typeof field);
@@ -130,9 +168,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             bayarHutang: rowBayarPayment,
             pinjamTong: rowPinjamTong,
             pulangTong: rowPulangTong,
+            totalTong: rowTotalTong,
+            totalCashCollection: rowTotalCashCollection,
           };
         }
-        }).filter((row: RowData | undefined): row is RowData => row !== undefined);
+      }).filter((row: RowData | undefined): row is RowData => row !== undefined);
 
 
       if (filteredRows.length > 0) {

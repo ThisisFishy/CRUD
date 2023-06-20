@@ -36,7 +36,7 @@ const createRandomRowForSales = () => {
   };
 }
 
-export const initialSalesRows: GridRowsProp = Array(2).fill(0).map(createRandomRowForSales);
+export const initialSalesRows: GridRowsProp = Array(0).fill(0).map(createRandomRowForSales);
 
 const createRandomRowForPurchase = () => {
   const randomIndex = Math.floor(Math.random() * Name123.length);
@@ -61,6 +61,6 @@ const createRandomRowForPurchase = () => {
   };
 }
 
-export const initialPurchaseRows: GridRowsProp = Array(2).fill(0).map(createRandomRowForPurchase);
+export const initialPurchaseRows: GridRowsProp = Array(0).fill(0).map(createRandomRowForPurchase);
 
 

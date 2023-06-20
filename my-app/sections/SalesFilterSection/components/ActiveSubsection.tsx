@@ -1,5 +1,7 @@
 import { Button, TextField, Autocomplete, FormControl } from "@mui/material";
 import { useState } from "react";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import { GridValidRowModel } from "@mui/x-data-grid";
 import { fetchSalesData } from "my-app/pages/api/api";
 
@@ -16,7 +18,7 @@ export interface FilterData {
 }
 
 const fields = ['Date', 'Name', 'Lorry'];
-const conditions = ['equals', 'not equals', 'between', 'greater than', 'less than', 'greater or equal to', 'smaller or equal to'];
+const conditions = ['equals', 'not equals', 'between', 'greater than', 'less than', 'greater or equal to', 'smaller or equal to', 'contain'];
 
 export const FilterSection = (props: FilterSectionProps) => {
     const [field, setField] = useState<string | undefined>();
@@ -44,6 +46,7 @@ export const FilterSection = (props: FilterSectionProps) => {
         console.log('This is ActiveSubsection');
         const newSalesData = await fetchSalesData(filterData);
         props.onFilterApplied(newSalesData);
+
     }
 
     return (
