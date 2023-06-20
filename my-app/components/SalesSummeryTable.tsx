@@ -11,8 +11,8 @@ export const SalesSummeryTable = (props: DataTableProps) => {
         {
             field: "date",
             headerName: "Date",
-            type: "dateTime",
-            width: 180,
+            type: "date",
+            width: 100,
             hideable: false,
             valueGetter: ({ value }) => {
                 const timestamp = Date.parse(value);

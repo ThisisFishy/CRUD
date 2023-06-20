@@ -18,8 +18,8 @@ export const PurchaseDataTable = (props: DataTableProps) => {
         {
             field: "date",
             headerName: "Date",
-            type: "dateTime",
-            width: 180,
+            type: "date",
+            width: 100,
             editable: true,
             hideable: false,
 
