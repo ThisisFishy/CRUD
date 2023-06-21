@@ -13,7 +13,7 @@ export const SalesFilterSection = (props: SalesFilterSectionProps) => {
 
     return (
         <section>
-            <SectionHeader title="Sales Filter Section" />
+            <SectionHeader title="Sales Filter" />
 
             {isActive ?
                 <FilterSection

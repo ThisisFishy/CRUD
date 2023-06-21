@@ -13,7 +13,7 @@ export const SalesFetchedSection = (props: SalesFetchedSectionProps) => {
   
   return (
     <section>
-      <SectionHeader title="Sales Fetched:" />
+      <SectionHeader title="Sales Fetched Result:" />
       <SalesSummeryTable salesRows={salesRows} />
     </section>
   );

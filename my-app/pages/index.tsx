@@ -77,14 +77,14 @@ function Main() {
           <header className="flex justify-center pt-4">
             <img className="w-70 h-28 max-sm:w-70 max-sm:h-24" src="/GloryGas_title.png" />
           </header>
-          <div className="flex justify-center">
-            <button onClick={handleTogglePage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm">
+          <div className="flex justify-center bg-blue-500">
+            <button onClick={handleTogglePage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm max-sm:text-xs max-sm:rounded-xl">
                 {showPurchasePage ? "Go to Sales Page" : "Go to Purchase Page"}
             </button>
-            <button onClick={handleSummeryPage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm">
-                {showSummeryPage ? "Go to Input Section" : "Go to Summery"}
+            <button onClick={handleSummeryPage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm max-sm:text-xs max-sm:rounded-xl">
+                {showSummeryPage ? "Go to Input Section" : "Go to Summary"}
             </button>
-            <button onClick={handleLogout} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm">Logout</button>
+            <button onClick={handleLogout} className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded-full text-sm max-sm:text-xs max-sm:rounded-xl">Logout</button>
           </div>
 
           <main className="flex flex-col gap-4 m-5 mt-0">
@@ -118,7 +118,7 @@ function Main() {
 
             {showSummeryPage && (
               <>
-                <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Summery</div>
+                <div className="mt-4 text-3xl font-bold leading-none tracking-tight text-gray-900 max-sm:text-2xl dark:text-white">Summary</div>
                 <div className="mt-2">
                 <SalesFilterSection onFilterApplied={(newSalesData: GridValidRowModel[]) => {
                     console.log('Fetched sales data:', newSalesData);
