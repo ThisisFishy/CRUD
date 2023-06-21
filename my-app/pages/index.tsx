@@ -1,5 +1,6 @@
 import { AddSection, SalesAddedSection, PurchaseAddSection, PurchaseAddedSection, SearchSection } from "../sections"
 import { SalesFilterSection } from "my-app/sections/SalesFilterSection/SalesFilterSection";
+import { PurchaseFilterSection } from "my-app/sections/PurchaseFilterSection";
 import { GridValidRowModel } from "@mui/x-data-grid"; // replace with the actual path
 import { fetchSalesData } from "./api/api";
 import { FilterData } from "my-app/sections/SalesFilterSection/components/ActiveSubsection";
@@ -14,7 +15,7 @@ import { LogIn } from "my-app/components/logIn";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { SalesFetchedSection } from "my-app/sections/SalesFetchedSection";
-
+import { PurchaseFetchedSection } from "my-app/sections/PurchaseFetchedSection";
 // Set dark theme by default
 // Reference: https://mui.com/material-ui/customization/dark-mode/
 const darkTheme = createTheme({
@@ -42,6 +43,7 @@ function Main() {
   const [showSummeryPage, setShowSummeryPage] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [salesFetchedRows, setSalesFetchedRows] = useState<GridValidRowModel[]>([]);
+  const [PurchaseFetchedRows, setPurchaseFetchedRows] = useState<GridValidRowModel[]>([]);
 
   const handleTogglePage = () => {
     setShowPurchasePage(!showPurchasePage);
@@ -126,6 +128,17 @@ function Main() {
 
                 <div className="mt-4">
                       <SalesFetchedSection salesRows={salesFetchedRows}/>
+                </div>
+
+                <div className="mt-2">
+                <PurchaseFilterSection onFilterApplied={(newPurchaseData: GridValidRowModel[]) => {
+                    console.log('Fetched sales data:', newPurchaseData);
+                    setPurchaseFetchedRows(newPurchaseData);
+                }} />
+                </div>
+
+                <div className="mt-4">
+                      <PurchaseFetchedSection PurchaseRows={PurchaseFetchedRows}/>
                 </div>
               </>
             )}
