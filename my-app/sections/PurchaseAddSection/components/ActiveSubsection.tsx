@@ -1,5 +1,5 @@
 import { Button, FormLabel, TextField, FormControl, Autocomplete } from "@mui/material"
-import { presetLorry, presetDriver } from "my-app/components/presetData"
+import { presetLorry, presetDriver, presetAccount } from "my-app/components/presetData"
 import { useState } from "react";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -186,6 +186,15 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                             </FormControl>
                             <TextField name="c14" size="small" label="C14" required={true} type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             <TextField name="receiptNumber" size="small" label="Receipt No." required={true} className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                            <FormControl variant="outlined" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full">
+                                <Autocomplete
+                                    options={presetAccount}
+                                    renderInput={(params) => (
+                                        <TextField {...params} name="account" required label="Account" size="small" />
+                                    )}
+                                    freeSolo //To allow you to input by yourself 
+                                />
+                            </FormControl>
                         </div>
                     </div>
 
@@ -204,7 +213,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                                 <TextField name="c50Tong" size="small" label="C50Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                             <div className="flex gap-4 mt-1 max-sm:flex-col">
-                                <TextField name="account" size="small" label="Account" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                {/* <TextField name="account" size="small" label="Account" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" /> */}
                                 <TextField name="notes" size="small" label="Notes" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                         </div>
