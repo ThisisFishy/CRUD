@@ -46,7 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Fetch all rows
       const { data } = await sheets.spreadsheets.values.get({
         spreadsheetId: '1Ql3bTvFLXkzRTHTVCcRoIQE0VVsO7HIjEjx7iegQN2E',
-        range: 'Sheet1!A2:S', // Adjust depending on your sheet structure
+        range: 'Sales!A2:S', // Adjust depending on your sheet structure
       });
 
       const rows = data.values || [];

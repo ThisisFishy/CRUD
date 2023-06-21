@@ -44,7 +44,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       await sheets.spreadsheets.batchUpdate(insertRequest);
 
-      const range = 'Sheet1!A2:Q2';
+      const range = 'Sales!A2:Q2';
 
       await sheets.spreadsheets.values.update({
         spreadsheetId,
