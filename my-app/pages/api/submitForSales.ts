@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const creds = require('../../webnext-388317-a94d4d8e4e94.json');
+const creds = require('../../dynamic-digit-390619-551ea0bc41c6.json');
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       const sheets = google.sheets({ version: 'v4', auth: client });
       
-      const spreadsheetId = '1Ql3bTvFLXkzRTHTVCcRoIQE0VVsO7HIjEjx7iegQN2E';
+      const spreadsheetId = '1NfUFFrGI7KCfzLAGdw5MQ8CsAnFj5bhh_IYKegY0-ds';
 
       // Insert a new row at position 2 (0-indexed)
       const insertRequest = {

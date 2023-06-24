@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const creds = require('../../webnext-388317-a94d4d8e4e94.json');
+const creds = require('../../dynamic-digit-390619-551ea0bc41c6.json');
 
 interface RowData {
     id: number;
@@ -40,7 +40,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       // Fetch all rows
       const { data } = await sheets.spreadsheets.values.get({
-        spreadsheetId: '1Ql3bTvFLXkzRTHTVCcRoIQE0VVsO7HIjEjx7iegQN2E',
+        spreadsheetId: '1NfUFFrGI7KCfzLAGdw5MQ8CsAnFj5bhh_IYKegY0-ds',
         range: 'Purchase!A2:N', // Adjust depending on your sheet structure
       });
 
