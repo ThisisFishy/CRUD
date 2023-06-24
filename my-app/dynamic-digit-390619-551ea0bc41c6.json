@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dynamic-digit-390619",
+  "private_key_id": "551ea0bc41c6c3bb7c1ca9d3d80dca81dac6027b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC7YJfTP8bBNJod\nnHUjb4SRpjnw+TTWStp++gU1l5mnNNXu27fYMFm4vF7TgmEH/0kSIUH4Ti2oF0w/\nhjstkRGzZPyoYsIOmE1Am8b7ZrlhMYYOT+zxPWNeJbK6fxQo+Ngtmsc1pdYVrXUq\nZVi43M70AKszgrgOMm7AwbcDBXol4bpWW2maoG4C7zTZj4fFjVK3cpD7eLL1WPpp\njWw+7BtqQkCPcZQ1/AgzjFa6gqxCfuX9lJJg7SakGwLWtVDTxrJkjLQKlXSfkPdN\nw1TBu9QF/ooR/L/FuvWPgk9DZzVD1h3ak75/4VyonkZ3lhNAtbq6ioAgnhQnYepo\nEl8bEFrBAgMBAAECggEAPUYF//+wCAgiiaJbL95M1LAt7F4h6B2MO8+YmoDbrzD4\n8GYLRXfyLxXyUGonPs09YN9dSkyOY5RSy8ciXPE+f5J7iLjaypkFUiZeuGFMJ7th\nIhcC3ZR8hRIA0zmxJwDQ+IDPufxj+KzDTrzbeYBDcMkzMuIBPCtDymbOaP+GhRIu\n80T1HRiaPe8aF92yHLZyw2z1GmUiL+au/t+DlZpRclleFwrbWy8NwRyq6htBxXWA\ncN41Hl+hMBweNLlpcbAoERdBQzzTQv6liP5fZU7mVTlEaMsYSXw1WBZ8wu0z5qxZ\nrpU08c26PTiQ5jsfphlEJVX/PHhIj1VNjae8w/kIjQKBgQDuTzkVnQ9A8gFgeVYn\nlqFB5qo8ANUQF1ylvXrvstJ1YwNsOcXCz3YtyCtOV24j7M8zZIzTBImMlQDXFMub\nHEiByJh9GkkVNZ+lzsa/N2baeYCm3sV+KHctfnRho+TJtFAxsS2DIPoc1JD0vTcz\ny2enJvfODYroVMH5BfuMgdV1wwKBgQDJSXevSbKtuQHlu5ip6rUr2WweqNW6VtmS\nNS+2ExJKJiBT6uqiND16L5+gOgKapngeB41wie13x3BK+PMVu2RRuwglqOyNqxHQ\nsav16DHWApBiGzlADfNweuRTEdamC97vSsy9g8hMa1d8e5LlapExuy6WSL0tMGi4\nmHwQ67PxKwKBgFez8kdBCRcWuWj+3rUtG2W8dVQl3kPQxTj99dt3TTsEWIMg8+YR\nIeYRb9aiGJfCFDNOwwD5/4EsaSW+snwAObMB1xTbcqAKnxmPctd2lTS8WJuRCs+2\nJr4odr5kadPNt2HCWgSTQ1kO5dYcOM+oARqkHbjIhSGh58005XG9aoivAoGBAJrk\nJOxHGu7hwdsFm7mNOfLPMYr6QtVMRcpjkR5b2KQkaJYK3JkK+A/RG9WRLjXRSfdZ\nunZSPOECIKAgp/YeKFlYQjGwpq9xZ5kfT4NANTFI8c/8wPZQhfcVKiPeQz2tPtUG\nyzw+b2CW7VCGSwitE6OgNX5B5QkkCkGaXUYsCmDXAoGBANaEDZ0/UReOzaIruUKr\nT2veihWmvgP4r6eZe7nEKdVKlJQv+5qhHEVTK+I7D53NLw9Si32a2/N8r8QuwlJz\nucHht11fe7zpMl3GRljfdxiJBxVW4kJRykNLaDt9MocRldzyPQl5aGMJZgeWECGf\n64zgkDu8aZj7FzhE7srDXWEl\n-----END PRIVATE KEY-----\n",
+  "client_email": "glorygas@dynamic-digit-390619.iam.gserviceaccount.com",
+  "client_id": "115641970734787929234",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/glorygas%40dynamic-digit-390619.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
