@@ -202,16 +202,16 @@ export const SalesSummeryTable = (props: DataTableProps) => {
             }
         },
 
-        // {
-        //     field: "pulangTong",
-        //     headerName: "Pulang Tong",
-        //     type: "number",
-        //     width:110,
-        //     editable: false,
-        //     renderHeader: (params) => {
-        //         return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
-        //     }
-        // },
+        {
+            field: "notes",
+            headerName: "Notes",
+            type: "string",
+            width:150,
+            editable: true,
+            renderHeader: (params) => {
+                return <span style={{ fontSize: '15px' }}>{params.colDef.headerName}</span>
+            }
+        },
 
         {
             field: "totalTong",

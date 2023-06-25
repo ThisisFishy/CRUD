@@ -28,7 +28,7 @@ export interface FormDataObject {
     bayarHutang: number,
     pinjamTong: number,
     pulangTong: number,
-    // totalCashCollection: number
+    notes: string,
 }
 
 export const ActiveSubsection = (props: ActiveSubsectionProps) => {
@@ -58,6 +58,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
             bayarHutang: 0,
             pinjamTong: 0,
             pulangTong: 0,
+            notes: "",
         }
 
         // Extract the raw data and convert it into a FormDataObject
@@ -137,6 +138,11 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                 case "pulangTong":
                     formDataObject.pulangTong = parseInt(value.toString());
                     break;
+
+                case "notes":
+                    formDataObject.notes = value.toString();
+                    break;
+                
             }
         });
 
@@ -229,6 +235,7 @@ export const ActiveSubsection = (props: ActiveSubsectionProps) => {
                                 <TextField name="c12" size="small" label="C12" type="number" className="w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />
                                 <TextField name="c12Tong" size="small" label="C12Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                                 <TextField name="c14Tong" size="small" label="C14Tong" type="number" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
+                                <TextField name="notes" size="small" label="Notes" className="w-48 shadow-sm shadow-indigo-900 max-sm:w-full" />
                             </div>
                             <div className="flex gap-4 mt-1 max-sm:flex-col">
                                 <TextField name="a14c" size="small" label="14c" type="number" className=" w-60 shadow-sm shadow-indigo-900 max-sm:w-full" />

@@ -24,6 +24,7 @@ interface RowData {
     pulangTong: string;
     totalTong: string;
     totalCashCollection: string;
+    notes: string;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -46,7 +47,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Fetch all rows
       const { data } = await sheets.spreadsheets.values.get({
         spreadsheetId: '1NfUFFrGI7KCfzLAGdw5MQ8CsAnFj5bhh_IYKegY0-ds',
-        range: 'Sales!A2:S', // Adjust depending on your sheet structure
+        range: 'Sales!A2:T', // Adjust depending on your sheet structure
       });
 
       const rows = data.values || [];
@@ -77,8 +78,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const rowBayarPayment= row[14];
         const rowPinjamTong = row[15];
         const rowPulangTong = row[16];
-        const rowTotalTong = row[17];
-        const rowTotalCashCollection = row[18];
+        const rowNotes = row[17];
+        const rowTotalTong = row[18];
+        const rowTotalCashCollection = row[19];
 
         let shouldIncludeRow = false;
         const queryDate = new Date(new Date(value as string).setHours(0, 0, 0, 0));
@@ -168,6 +170,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             bayarHutang: rowBayarPayment,
             pinjamTong: rowPinjamTong,
             pulangTong: rowPulangTong,
+            notes: rowNotes,
             totalTong: rowTotalTong,
             totalCashCollection: rowTotalCashCollection,
           };

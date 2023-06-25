@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     console.log("Received POST request with data:", req.body);
     try {
-      const { date, name, lorry, c12, c12Tong, c14, c14Tong, a14c, a14cTong, c50, c50Tong, gasPayment, hutang, tongPayment, bayarHutang, pinjamTong, pulangTong } = req.body;
+      const { date, name, lorry, c12, c12Tong, c14, c14Tong, a14c, a14cTong, c50, c50Tong, gasPayment, hutang, tongPayment, bayarHutang, pinjamTong, pulangTong, notes } = req.body;
 
       // Authenticate with Google Sheets API
       const client = new google.auth.JWT({
@@ -44,14 +44,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       await sheets.spreadsheets.batchUpdate(insertRequest);
 
-      const range = 'Sales!A2:Q2';
+      const range = 'Sales!A2:T2';
 
       await sheets.spreadsheets.values.update({
         spreadsheetId,
         range,
         valueInputOption: 'USER_ENTERED',
         requestBody: {
-          values: [[date, name, lorry, c12, c12Tong, c14, c14Tong, a14c, a14cTong, c50, c50Tong, gasPayment, hutang, tongPayment, bayarHutang, pinjamTong, pulangTong]],
+          values: [[date, name, lorry, c12, c12Tong, c14, c14Tong, a14c, a14cTong, c50, c50Tong, gasPayment, hutang, tongPayment, bayarHutang, pinjamTong, pulangTong, notes]],
         },
       });
 
